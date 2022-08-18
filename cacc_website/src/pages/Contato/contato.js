@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "reactstrap";
 import Field from "../../components/Field/field";
 import "./contato.css"
+import { sendComentario } from "../../hooks/contatoApi";
 
 
 const Contato = () => {

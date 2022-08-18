@@ -35,3 +35,9 @@
     /* background-color: white; */
     padding: 15px;
 }
+
+@media (max-width: 700px){
+    .QuemSomos{
+        margin-top: calc(100% - 250px);
+    }
+}

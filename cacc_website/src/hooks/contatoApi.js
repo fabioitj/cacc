@@ -6,4 +6,4 @@ function sendComentario(email, nome, obs){
     return axios.get(url + "Contato/SendComentario");
 }
 
-export {};
+export {sendComentario};

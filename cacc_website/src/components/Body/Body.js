@@ -6,13 +6,23 @@ import Login from '../../pages/Login/Login';
 import QuemSomos from '../../pages/QuemSomos/quemSomos';
 import "./Body.css";
 
+
 const Body = (children) => {
     return (
         <div className='Body'>
             <div className='ColorBox'>
-
-            </div>
-            <div className='ContentPage'>
+                <Particles
+                    params={{
+                        particles: {
+                          number: {
+                            value: 200,
+                            density: {
+                              enable: true,
+                              value_area: 1000,
+                            }
+                          },
+                        },
+                      }}/>
                 <div className='Page'>
                     <Routes>
                         <Route path="/inicio" element={<Inicio/>}/>
@@ -22,7 +32,6 @@ const Body = (children) => {
                     </Routes>
                 </div>
             </div>
-            
         </div>
     )
 }
