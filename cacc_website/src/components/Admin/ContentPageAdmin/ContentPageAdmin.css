@@ -1,0 +1,10 @@
+.ContentPageAdmin{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    position: absolute;
+    left: 150px;
+    top: 50px;
+    height: calc(100% - 50px);
+    width: calc(100% - 150px);
+}

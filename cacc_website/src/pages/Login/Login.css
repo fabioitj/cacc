@@ -1,0 +1,157 @@
+.Login{
+    background-image: url("../../../public/background2.png");
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh
+}
+
+.Login .ModalLogin{
+    width: 450px;
+    height: 350px;
+    background-color: #2a3960;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Login .ModalLogin .ModalHeader{
+    height:15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* box-shadow: 0 0 5px 0.1px rgba(0, 0, 10, 0.9); */
+    padding: 5px;
+    
+}
+
+.Login .ModalLogin .ModalHeader .LeftArrow{
+    color: white;
+    cursor: pointer;
+    width: 10%;
+    transition: .2s all;
+}
+
+.Login .ModalLogin .ModalHeader .ModalHeaderTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+}
+
+.Login .ModalLogin .ModalHeader .ModalHeaderTitle img{
+    width: 75px;
+    content: url("../../../public/logo.png");
+    margin-top: 30px;
+}
+
+
+.Login .ModalLogin .ModalHeader .BlankSpace{
+    width: 10%;
+    height: 100%;
+}
+
+.Login .ModalLogin .ModalHeader .LeftArrow:hover{
+    color: #37529b;
+}
+
+.Login .ModalLogin .ModalBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 70%;
+    /* box-shadow: 0 0 5px 0.1px rgba(0, 0, 10, 0.9); */
+    margin: 10px;
+    padding: 5px;
+}
+
+.Login .ModalLogin .ModalBody .Field{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.Login .ModalLogin .ModalBody .Field .InputField{
+    width: 80%;
+    padding: 5px;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid white;
+    outline: none;
+    caret-color: white;
+    transition: 0.2s all;
+    color: white;
+}
+
+.Login .ModalLogin .ModalBody .Field .InputField:focus{
+    border-bottom: 1px solid #00A1DE;
+}
+
+.Login .ModalLogin .ModalBody .Field .LabelField{
+    width: 80%;
+    text-align: left;
+    color: white;
+    display: block;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.Login .ModalLogin .ModalBody .Field .InputField::placeholder{
+    color: #CDCDCD;
+    font-size: 10px;
+}
+
+.Login .ModalLogin .ModalBody .Field .InputField::before{
+    content: ("a");
+    width: 100%;
+    height: 25px;
+    background-color: #00A1DE;
+}
+
+.Login .ModalLogin .ModalFooter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin: 10px;
+    height: 15%;
+    /* box-shadow: 0 0 5px 0.1px rgba(0, 0, 10, 0.9); */
+    border-radius: 4px;
+}
+
+.Login .ModalLogin .ModalFooter .ButtonBox{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+}
+
+.Login .ModalLogin .ModalFooter .ButtonBox button{
+    cursor: pointer;
+    padding: 10px 15px 10px 15px;
+    background-color: #37529b;
+    border: 0;
+    color: white;
+    transition: 0.2s all;
+    border-radius: 4px;
+}
+
+.Login .ModalLogin .ModalFooter .ButtonBox button:hover{
+    padding: 10px 15px 10px 15px;
+    background-color: white;
+    color: #37529b;
+}
+
+
+
+

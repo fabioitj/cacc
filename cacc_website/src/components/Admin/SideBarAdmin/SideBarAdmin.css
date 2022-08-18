@@ -1,0 +1,49 @@
+.SideBarAdmin{
+    height: 100%;
+    width: 150px;
+    position: fixed;
+    top:0;
+    left: 0;
+    background-color: rgba(5, 17, 47, 0.92);
+    display:flex;
+    flex-direction: column;
+    align-items: left;
+    transition: .5s all;
+}
+
+.SideBarAdmin .SideBarActions a:hover{
+    background-color: white;
+    color:rgba(5, 17, 47, 0.92);
+}
+
+.SideBarAdmin .SideBarActions a{
+    text-decoration: none;
+    color: white;
+    height: 100%;
+    display: block;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid rgba(4, 18, 54, 0.922);
+}
+
+.SideBarAdmin .SideBarActions a span{
+    margin-left: 15px;
+}
+
+.SideBarAdmin .SideBarLogoBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    border-bottom: 2px solid rgba(4, 18, 54, 0.922);
+    border-right: 2px solid rgba(4, 18, 54, 0.922);
+}
+
+.SideBarAdmin .SideBarLogoBox .SideBarLogo{
+    content: url("../../../../public/logo.png");
+    width: 50px;
+    margin-left: -10px;
+}
