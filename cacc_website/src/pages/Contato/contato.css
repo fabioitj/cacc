@@ -1,17 +1,32 @@
 .Contato *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
 
 .Contato{
     width: 100%;
+    height: 100vh;
+}
+
+.CoolText{
+    width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.CoolText h1{
+    font-size: 64px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .Contato .ContatoBox{
     width: 100%;
-    height: 100%;
 }
 
 .Contato .ContatoBox .ContatoBoxHeader{
@@ -32,17 +47,27 @@
 .Contato .ContatoBox .ContatoBoxBody{
     width: 100%;
     height: 85%;
+    box-sizing: border-box;
     /* background-color: white; */
+    color: white;
+    padding-top: 100px;
+}
+
+.FormularioBox{
     padding: 15px;
     background-color: rgb(14, 79, 158);
     padding: 10px;
     border-radius: 8px;
-    color: white;
-}
-
-.FormularioBox{
     width: 100%;
     height: 100%;
+}
+
+.FormularioBox .RowField h2{
+    padding: 15px;
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .RowField{
@@ -89,4 +114,15 @@
     flex-direction: row;
     align-items: center;
     justify-content: right;
+}
+
+.RedesIcons{
+    
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    font-size: 32px;
+    cursor: pointer;
+   
 }

@@ -5,25 +5,14 @@ import Inicio from '../../pages/Publicacoes/Publicacoes';
 import Login from '../../pages/Login/Login';
 import QuemSomos from '../../pages/QuemSomos/quemSomos';
 import "./Body.css";
+import { useState } from 'react';
 
 
-const Body = (children) => {
+const Body = ({scrollPage}) => {
     return (
-        <div className='Body'>
-            <div className='ColorBox'>
-                <Particles
-                    params={{
-                        particles: {
-                          number: {
-                            value: 200,
-                            density: {
-                              enable: true,
-                              value_area: 1000,
-                            }
-                          },
-                        },
-                      }}/>
-                <div className='Page'>
+        <div className={!scrollPage ? 'Body' : 'Body BodyScrolled'}>
+            <div className='Page'>
+                <div className={!scrollPage ? 'ContentPage' : 'ContentPage ContentPageScrolled'}>
                     <Routes>
                         <Route path="/inicio" element={<Inicio/>}/>
                         <Route path="/eventos" element={<Eventos/>}/>

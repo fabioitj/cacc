@@ -32,3 +32,20 @@ C:\ModallPort\GitHub\cacc_website\WebService\obj\Release\netcoreapp2.1\win-x64\W
 C:\ModallPort\GitHub\cacc_website\WebService\obj\Release\netcoreapp2.1\win-x64\WsCACC.RazorTargetAssemblyInfo.cache
 C:\ModallPort\GitHub\cacc_website\WebService\obj\Release\netcoreapp2.1\win-x64\WsCACC.dll
 C:\ModallPort\GitHub\cacc_website\WebService\obj\Release\netcoreapp2.1\win-x64\WsCACC.pdb
+C:\Users\fabio\Área de Trabalho\cacc_website\cacc\WebService\bin\Release\netcoreapp2.1\win-x64\hostpolicy.dll
+C:\Users\fabio\Área de Trabalho\cacc_website\cacc\WebService\bin\Release\netcoreapp2.1\win-x64\hostfxr.dll
+C:\Users\fabio\Área de Trabalho\cacc_website\cacc\WebService\bin\Release\netcoreapp2.1\win-x64\WsCACC.exe
+C:\Users\fabio\Área de Trabalho\cacc_website\cacc\WebService\bin\Release\netcoreapp2.1\win-x64\WsCACC.deps.json
+C:\Users\fabio\Área de Trabalho\cacc_website\cacc\WebService\bin\Release\netcoreapp2.1\win-x64\WsCACC.runtimeconfig.json
+C:\Users\fabio\Área de Trabalho\cacc_website\cacc\WebService\bin\Release\netcoreapp2.1\win-x64\WsCACC.runtimeconfig.dev.json
+C:\Users\fabio\Área de Trabalho\cacc_website\cacc\WebService\bin\Release\netcoreapp2.1\win-x64\WsCACC.dll
+C:\Users\fabio\Área de Trabalho\cacc_website\cacc\WebService\bin\Release\netcoreapp2.1\win-x64\WsCACC.pdb
+C:\Users\fabio\Área de Trabalho\cacc_website\cacc\WebService\obj\Release\netcoreapp2.1\win-x64\WsCACC.csprojAssemblyReference.cache
+C:\Users\fabio\Área de Trabalho\cacc_website\cacc\WebService\obj\Release\netcoreapp2.1\win-x64\WsCACC.csproj.CoreCompileInputs.cache
+C:\Users\fabio\Área de Trabalho\cacc_website\cacc\WebService\obj\Release\netcoreapp2.1\win-x64\WsCACC.RazorAssemblyInfo.cache
+C:\Users\fabio\Área de Trabalho\cacc_website\cacc\WebService\obj\Release\netcoreapp2.1\win-x64\WsCACC.RazorAssemblyInfo.cs
+C:\Users\fabio\Área de Trabalho\cacc_website\cacc\WebService\obj\Release\netcoreapp2.1\win-x64\WsCACC.AssemblyInfoInputs.cache
+C:\Users\fabio\Área de Trabalho\cacc_website\cacc\WebService\obj\Release\netcoreapp2.1\win-x64\WsCACC.AssemblyInfo.cs
+C:\Users\fabio\Área de Trabalho\cacc_website\cacc\WebService\obj\Release\netcoreapp2.1\win-x64\WsCACC.RazorTargetAssemblyInfo.cache
+C:\Users\fabio\Área de Trabalho\cacc_website\cacc\WebService\obj\Release\netcoreapp2.1\win-x64\WsCACC.dll
+C:\Users\fabio\Área de Trabalho\cacc_website\cacc\WebService\obj\Release\netcoreapp2.1\win-x64\WsCACC.pdb

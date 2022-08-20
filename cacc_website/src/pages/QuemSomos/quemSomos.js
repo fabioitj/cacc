@@ -25,7 +25,7 @@ const QuemSomos = () => {
         <div className="QuemSomos">
             <div className="QuemSomosBox">
                 <div className="QuemSomosBoxHeader">
-                    <h2>Quem Somos</h2>
+                    <h2>QUEM SOMOS</h2>
                 </div>
                 <div className="QuemSomosBoxBody">
                     {

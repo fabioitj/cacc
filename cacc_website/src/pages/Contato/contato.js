@@ -2,7 +2,9 @@ import { useState } from "react";
 import { Button } from "reactstrap";
 import Field from "../../components/Field/field";
 import "./contato.css"
-import { sendComentario } from "../../hooks/contatoApi";
+import { sendComentario } from "../../hooks/contatoApi.js";
+import { FaInstagram, FaWhatsapp, FaDiscord } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 
 const Contato = () => {
@@ -10,6 +12,8 @@ const Contato = () => {
     const [email, setEmail] = useState("");
     const [nome, setNome] = useState("");
     const [obs, setObs] = useState("");
+
+    const navigate = useNavigate();
 
     const handleEnviarComentario = () => {
         if(validaDados()){
@@ -23,7 +27,7 @@ const Contato = () => {
                     else{
                         alert(data.itens[0].mensagem)
                     }
-                })
+                });
         }
     }
 
@@ -55,35 +59,80 @@ const Contato = () => {
 
     const isVazio = (item) => item == "" || item == null || item == undefined;
 
+    const handleClickRedeSocial = (tipo) => {
+        switch(tipo){
+            case 'I':
+                window.open("https://www.instagram.com/cacc_univali/", "_blank");
+                break;
+
+            case 'D':
+                window.open("https://discord.gg/JtGbyFeQ", "_blank");
+                break;
+
+            case 'W':
+                window.open("https://chat.whatsapp.com/JHa2jWBp4JD67tOmCJjuDK", "_blank");
+                break;
+        }
+    }
+
     return (
         <div className="Contato">
             <div className="ContatoBox">
                 <div className="ContatoBoxHeader">
-                    <h2>Contato</h2>
+                    <h2>CONTATO</h2>
                 </div>
                 <div className="ContatoBoxBody">
-                    <div className="FormularioBox">
-                        <div className="RowField">
-                            <div className="ColumnField">
-                                <div className="Column6">
-                                    <Field label={"Email"} typeInput={"email"} typeOfField={"input"} classe={"emailInput"} get={email} set={setEmail}/>
-                                </div>
-                                <div className="Column6">
-                                    <Field label={"Nome"} typeInput={"text"} typeOfField={"input"} classe={"nomeInput"} get={nome} set={setNome}/>
-                                </div>
-                            </div>
-                            <div className="ColumnField">
-                                <div className="Column12">
-                                    <Field label={"Observação"} typeInput={"textarea"} typeOfField={"textarea"} classe={"obsInput"} get={obs} set={setObs}/>
+                    <div className="RowField">
+                        <div className="ColumnField">
+                            <div className="Column6">
+                                <div className="CoolText">
+                                    <h1>Vamos conversar!</h1>
+                                    <p>Juntos criaremos algo incrível.</p>
+                                    <div className="RedesIcons">
+                                        <FaInstagram onClick={() => { handleClickRedeSocial("I") }}/>
+                                        <FaWhatsapp onClick={() => { handleClickRedeSocial("W") }}/>
+                                        <FaDiscord onClick={() => { handleClickRedeSocial("D") }}/>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="ColumnField">
-                                <div className="BtnEnviarComentario">
-                                    <Button color="primary" onClick={handleEnviarComentario}>Enviar</Button>
+                            <div className="Column6">
+                                <div className="FormularioBox">
+                                    <div className="RowField">
+                                        <h2>Mande uma mensagem</h2>
+                                        <div className="ColumnField">
+                                            <div className="Column6">
+                                                <Field label={"Email"} typeInput={"email"} typeOfField={"input"} classe={"emailInput"} get={email} set={setEmail}/>
+                                            </div>
+                                            <div className="Column6">
+                                                <Field label={"Nome"} typeInput={"text"} typeOfField={"input"} classe={"nomeInput"} get={nome} set={setNome}/>
+                                            </div>
+                                        </div>
+                                        <div className="ColumnField">
+                                            <div className="Column12">
+                                                <Field label={"Sua mensagem"} typeInput={"textarea"} typeOfField={"textarea"} classe={"obsInput"} get={obs} set={setObs}/>
+                                            </div>
+                                        </div>
+                                        <div className="ColumnField">
+                                            <div className="BtnEnviarComentario">
+                                                <Button color="primary" onClick={handleEnviarComentario}>Enviar</Button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div className="InformacoesBox">
+                        <div className="RowField">
+                            <div className="ColumnField">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    
                 </div>
             </div>
 

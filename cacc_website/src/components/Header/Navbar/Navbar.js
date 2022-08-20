@@ -2,17 +2,9 @@ import { useState } from "react";
 import "./Navbar.css"
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({scrollPage}) => {
     
-    const [scrollPage, setScrollPage] = useState(false);
-    window.onscroll = () => { 
-        let offSetScreen = window.pageYOffset;
-        console.log(offSetScreen);
-        if(offSetScreen > 100)
-            setScrollPage(true);
-        else
-            setScrollPage(false);
-    };
+
 
     return (
         <div className={!scrollPage ? "Navbar" : "Navbar NavbarScrolled"}>

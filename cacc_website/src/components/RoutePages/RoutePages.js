@@ -13,13 +13,13 @@ import PublicacoesAdmin from '../../pages/Admin/PublicacoesAdmin/PublicacoesAdmi
 import EventosAdmin from '../../pages/Admin/EventosAdmin/EventosAdmin';
 import ContasAdmin from '../../pages/Admin/ContasAdmin/ContasAdmin';
 import DiretoriaAdmin from '../../pages/Admin/DiretoriaAdmin/DiretoriaAdmin';
-import ContatoAdmin from '../../pages/Admin/ContatoAdmin/ContatoAdmin';
-
+import "./RoutePages.css"
+import MensagensAdmin from '../../pages/Admin/MensagensAdmin/MensagensAdmin';
 
 const RoutePages = () => {
 
     return (
-        <div>
+        <div className='RoutePages'>
             <BrowserRouter>
                 <Routes>
                     <Route path='/' element={<Geral/>}>
@@ -33,7 +33,7 @@ const RoutePages = () => {
                     <Route path="/" element={<Admin/>}>
                         <Route path="/admin/publicacoes" element={<PublicacoesAdmin/>}></Route>
                         <Route path="/admin/eventos" element={<EventosAdmin/>}></Route>
-                        <Route path="/admin/contato" element={<ContatoAdmin/>}></Route>
+                        <Route path="/admin/mensagens" element={<MensagensAdmin/>}></Route>
                         <Route path="/admin/contas" element={<ContasAdmin/>}></Route>
                         <Route path="/admin/diretoria" element={<DiretoriaAdmin/>}></Route>
                     </Route>
