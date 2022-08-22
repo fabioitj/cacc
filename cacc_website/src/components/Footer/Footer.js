@@ -57,7 +57,7 @@ const Footer = () => {
                         <div className="Column4">
                             <div className="TextBox">
                                 <div className="TitleBox">
-                                    <h2>Contato por e-mail 2</h2>
+                                    <h2>Contato por e-mail 29849498</h2>
                                 </div>
                                 <div className="ContentBox">
                                 <div className="Text">
