@@ -1,0 +1,140 @@
+.Footer{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Footer .FirstLayer{
+    width: 100%;
+    height: 325px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #002E5D;
+}
+
+.Footer .SecondLayer{
+    width: 100%;
+    height: 75px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #002453;
+}
+
+.Footer .FirstLayerBox{
+    width: 85%;
+    height: 100%;
+}
+
+.Footer .FirstLayerBox .ColumnBox{
+    width: 100%;
+    height: 100%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 20px;
+    gap: 20px;
+}
+
+.Footer .Column4{
+    height: 100%;
+    width: 30%;
+    /* background-color: blue; */
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    /* justify-content: center; */
+}
+
+.Footer .SecondLayer .ColumnBox{
+    width: 100%;
+    height: 100%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Footer .Column6{
+    height: 100%;
+    width: 50%;
+    /* background-color: red; */
+    text-align: left;
+    padding: 10px;
+}
+
+.Footer .Column6:nth-child(1){
+    padding-left: 80px;
+}
+
+.Footer .Column6 h4{
+    padding-top: 15px;
+    width: 80%;
+    text-align: left;
+    color: #1D67CD;
+}
+
+
+.Footer .Column6 p{
+    width: 80%;
+    text-align: left;
+    color: #1D67CD;
+}
+
+.Footer .Column4 h2{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1D67CD;
+}
+
+.TextBox{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.TextBox .ContentBox{
+    padding-right: 100px;
+    color: #1D67CD;
+    font-size: 18px;
+}
+
+.TextBox .ContentBox .Icons{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-top: 20px;
+    
+}
+
+.TextBox .ContentBox .Icons svg{
+    color: white;
+    font-size: 30px;
+}
+
+.TextBox .ContentBox .Email{
+    padding-top: 20px;
+}
+
+.TextBox .ContentBox .Email a{
+    text-decoration: underline;
+}
+
+.SecondLayer .LogoImage{
+    content: url("../../../public/logo.png");
+    width: 50px;
+    transition: 0.2s all;
+    cursor: pointer;
+}
+
+.SecondLayer .LogoImage:hover{
+    transform: scale(1.1);
+}
+

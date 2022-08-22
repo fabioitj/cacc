@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Body from "../Body/Body"
 import Navbar from "../Header/Navbar/Navbar"
+import Footer from "../Footer/Footer.js";
 import "./Geral.css";
 
 const Geral = () => {
@@ -18,6 +19,7 @@ const Geral = () => {
         <div className="Geral">
             <Navbar scrollPage={scrollPage}/>
             <Body className="GeralBody" scrollPage={scrollPage}/>
+            <Footer/>
         </div>
     )
 }
