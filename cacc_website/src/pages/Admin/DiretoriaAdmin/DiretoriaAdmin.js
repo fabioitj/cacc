@@ -1,10 +1,12 @@
 import "./DiretoriaAdmin.css";
 import { useEffect, useState } from "react";
 import { getFullDiretoria, alternarAtividade, deleteRegistro, createRegistro } from "../../../hooks/diretoriaApi";
+import { getFullCargos } from "../../../hooks/cargosApi";
 import { FaImage, FaRegEdit, FaHandPointUp, FaHandPointDown, FaTrash, FaPlus } from "react-icons/fa";
 import { Button } from "reactstrap";
 import Modal from "../../../components/Modal/Modal";
 import { useDropzone } from "react-dropzone";
+import Field from "../../../components/Field/field";
 
 const DiretoriaAdmin = () => {
 
@@ -13,12 +15,34 @@ const DiretoriaAdmin = () => {
     
     useEffect(() => {
         refreshTable();
+
+        loadCargosSelect();
     }, []);
+
+    useEffect(() => {
+        if(!modalCreateIsOpen)
+            resetFields();
+    }, [modalCreateIsOpen])
+
+    const [selectCargoList, setSelectCargoList] = useState([]);
+    const loadCargosSelect = () => {
+        getFullCargos()
+        .then((response) => {
+            let data = response.data;
+            if(data.success){
+                setSelectCargoList(data.data);
+            }
+        })
+        .catch((error) => {
+            alert(error);
+        })
+    }
 
     const refreshTable = () => {
         getFullDiretoria()
         .then((response) => {
             let data = response.data;
+            console.log(data);
             if(data.success){   
                 setList(data.data);
             }
@@ -28,16 +52,18 @@ const DiretoriaAdmin = () => {
         });
     }
 
-    const visualizarImage = (id) => {
-        setModalCreateIsOpen(true);
-    }
-
     const editarRegistro = (item) => {
+        setIddiretoria(item.iddiretoria);
+        setNome(item.nome);
+        setIdcargo(item.idcargo);
+        setApresentacao(item.apresentacao);
+        setImagem(item.imagem);
+
+
         setModalCreateIsOpen(true);
     }
 
     const alternarAtividadeButton = (id) => {
-        console.log(id);
         alternarAtividade(id)
             .then(() => {
                 refreshTable();
@@ -57,23 +83,22 @@ const DiretoriaAdmin = () => {
         setModalCreateIsOpen(true);
     }
 
+    const [iddiretoria, setIddiretoria] = useState("");
     const [nome, setNome] = useState("");
-    const [cargo, setCargo] = useState("");
+    const [idcargo, setIdcargo] = useState("");
     const [apresentacao, setApresentacao] = useState("");
     const [imagem, setImagem] = useState("");
 
     const createCallback = () => {
-        console.log("files topzera: ", files);
-        setImagem("https://pps.whatsapp.net/v/t61.24694-24/288007444_1092341074745244_5639014272169783211_n.jpg?ccb=11-4&oh=01_AVzGSay4kq9xtv-kxa85Tfaz-IBXVkAOQoE8IwFpnBRZOw&oe=630B341D");
-
         let dados = {
+            iddiretoria,
             nome,
-            cargo,
+            idcargo,
             apresentacao,
             imagem
         };
 
-        console.log(dados);
+        dados.imagem = dados.imagem.replace("data:image/png;base64,", "");
 
         createRegistro(dados)
             .then((response) => {
@@ -91,36 +116,30 @@ const DiretoriaAdmin = () => {
 
     const resetFields = () => {
         setNome("");
-        setCargo("");
+        setIdcargo("");
         setApresentacao("");
         setImagem("");
+        setIddiretoria("");
     }
 
-    const [files, setFiles] = useState([]);
-    // const {getRootProps, getInputProps} = useDropzone({
-    //     accept: 'image/*',
-    //     onDrop: acceptedFiles => {
-    //         setFiles(acceptedFiles.map(file => Object.assign(file, {
-    //             preview: URL.createObjectURL(file)
-    //         })));
-    //     }
-        
-    // });
+    const handleChangeEvent = (e) => {
+        const fileTarget = e.target.files[0];
 
-    const thumbs = files.map(file => (
-        <div key={file.name}>
-        <div>
-            <img
-            src={file.preview}
-            />
-        </div>
-        </div>
-    ));
+        getBase64(fileTarget, (result) => {
+            setImagem(result);
+        });
+    }
 
-    useEffect(() => {
-        // Make sure to revoke the data uris to avoid memory leaks
-        files.forEach(file => URL.revokeObjectURL(file.preview));
-    }, [files]);
+    const getBase64 = (fileTarget, cb) => {
+        let reader = new FileReader();
+        reader.readAsDataURL(fileTarget);
+        reader.onload = function () {
+            cb(reader.result)
+        };
+        reader.onerror = function (error) {
+            console.log('Error: ', error);
+        };
+    }
 
     return (
         <>
@@ -128,7 +147,7 @@ const DiretoriaAdmin = () => {
                 <div className="DiretoriaBox">
                     <div className="DiretoriaBoxHeader">
                         <h2>Gerenciamento da Diretoria</h2>
-                        <Button onClick={createNewRegister} color="success"><FaPlus/></Button>
+                        <button onClick={createNewRegister} className="btn btn-success"><FaPlus/></button>
                     </div>
                     <div className="DiretoriaBoxBody">
                         <div className="RowFilters">
@@ -136,17 +155,16 @@ const DiretoriaAdmin = () => {
                         </div>
                         <div className="RowTable">
                             
-                            <table className="DiretoriaTable">
+                            <table className="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th></th>
                                         <th></th>
                                         <th></th>
                                         <th></th>
                                         <th>Id</th>
                                         <th>Nome</th>
                                         <th>Cargo</th>
-                                        <th>Atuando</th>
+                                        <th>Ativo</th>
                                     </tr>
                                 </thead>
                                 <tbody className="DiretoriaTableBody">
@@ -154,13 +172,12 @@ const DiretoriaAdmin = () => {
                                         list.map((item, i) => {
                                             return (
                                                 <tr>
-                                                    <td><Button className="Button" color="info" onClick={() => {visualizarImage(item.iddiretoria)}} title="Visualizar Imagem" ><FaImage/></Button></td>
                                                     <td><Button className="Button" color="primary" onClick={() => { editarRegistro(item)}} title="Editar Registro"><FaRegEdit/></Button></td>
-                                                    <td><Button className="Button" color={item.ativo == 'S' ? "danger" : "success"} onClick={() => { alternarAtividadeButton(item.iddiretoria)}} title={item.ativo == "S" ? "Desativar" : "Ativar"}>{item.ativo == "S" ? <FaHandPointDown/> : <FaHandPointUp/>}</Button></td>
+                                                    <td><Button className="Button" color={item.ativo == 'S' ? "warning" : "success"} onClick={() => { alternarAtividadeButton(item.iddiretoria)}} title={item.ativo == "S" ? "Desativar" : "Ativar"}>{item.ativo == "S" ? <FaHandPointDown/> : <FaHandPointUp/>}</Button></td>
                                                     <td><Button className="Button" color="danger" onClick={() => { deleteRegistroButton(item.iddiretoria )}} title="Excluir registro"><FaTrash/></Button></td>
-                                                    <td>{item.iddiretoria}</td>
+                                                    <td style={{padding: "8px"}}>{item.iddiretoria}</td>
                                                     <td>{item.nome}</td>
-                                                    <td>{item.cargo}</td>
+                                                    <td>{item.dscargo}</td>
                                                     <td>{item.ativo == "S" ? "Sim" : "Não"}</td>    
                                                 </tr>
                                             )
@@ -173,30 +190,42 @@ const DiretoriaAdmin = () => {
                 </div>
             </div>
             {modalCreateIsOpen && 
-                <Modal title="Criação" btnText="Criar" setOpenModal={setModalCreateIsOpen} callback={createCallback}>
+                <Modal title="Cadastro de Diretoria" btnText="Salvar" setOpenModal={setModalCreateIsOpen} callback={createCallback}>
                     <form role="form" className="FormCreateRegister">
                         <div className="FormBox">
                             <div className="BoxField">
-                                <label>Nome</label>
-                                <input type="text" value={nome} onChange={(e) => {setNome(e.target.value)}} placeholder="Nome..."/>
+                                <Field label="Nome" classe="LighterThemeInput" typeInput="text" typeOfField="input" get={nome} set={setNome} />
+                                {/* <label>Nome</label>
+                                <input type="text" value={nome} onChange={(e) => {setNome(e.target.value)}} placeholder="Nome..."/> */}
                             </div>
                             <div className="BoxField">
-                                <label>Cargo</label>
-                                <input type="text" value={cargo} onChange={(e) => {setCargo(e.target.value)}} placeholder="Cargo..."/>
+                                <Field label="Cargo" classe="LighterThemeInput" typeInput="text" typeOfField="select" get={idcargo} set={setIdcargo} >
+                                    {
+                                        selectCargoList.map((item, index) => {
+                                            return (
+                                                <option value={item.idcargo}>
+                                                    {item.descricao}
+                                                </option>
+                                            )
+                                        })
+                                    }
+                                </Field>
+
+                                {/* <label>Cargo</label>
+                                <input type="text" value={cargo} onChange={(e) => {setCargo(e.target.value)}} placeholder="Cargo..."/> */}
                             </div>
                             <div className="BoxField">
-                                <label>Apresentação</label>
-                                <input type="text" value={apresentacao} onChange={(e) => {setApresentacao(e.target.value)}} placeholder="Apresentação..."/>
+                                <Field label="Apresentação" classe="LighterThemeInput" typeInput="text" typeOfField="input" get={apresentacao} set={setApresentacao} />
+
+                                {/* <label>Apresentação</label>
+                                <input type="text" value={apresentacao} onChange={(e) => {setApresentacao(e.target.value)}} placeholder="Apresentação..."/> */}
                             </div>
                             <div className="BoxField">
-                                <div  className="dragNDrop">
-                                    <input />
-                                    <p>Arraste a sua <strong>IMAGEM</strong> aqui!</p>
-                                    <input type="file" placeholder="Escolha a imagem"/>
+                                <div className="dragNDrop">
+                                    <p>Escolha a sua <strong>IMAGEM</strong> aqui!</p>
+                                    <input type="file" accept="image/png" onChange={(e) => { handleChangeEvent(e)}} placeholder="Escolha a imagem"/>
+                                    <img src={imagem}/>
                                 </div>
-                                <aside>
-                                    {thumbs}
-                                </aside>
                             </div>
 
                         </div>

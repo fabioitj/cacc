@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Button } from "reactstrap";
 import Field from "../../components/Field/field";
 import "./contato.css"
 import { sendComentario } from "../../hooks/contatoApi.js";
@@ -13,7 +12,7 @@ const Contato = () => {
     const [nome, setNome] = useState("");
     const [obs, setObs] = useState("");
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const handleEnviarComentario = () => {
         if(validaDados()){
@@ -114,25 +113,14 @@ const Contato = () => {
                                         </div>
                                         <div className="ColumnField">
                                             <div className="BtnEnviarComentario">
-                                                <Button color="primary" onClick={handleEnviarComentario}>Enviar</Button>
+                                                <button type="button" className="btn btn-primary"   onClick={handleEnviarComentario}>Enviar</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div className="InformacoesBox">
-                        <div className="RowField">
-                            <div className="ColumnField">
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    
+                    </div>                    
                 </div>
             </div>
 

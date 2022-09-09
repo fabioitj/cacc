@@ -2,13 +2,50 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import RoutePages from './components/RoutePages/RoutePages';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Geral from './components/Geral/Geral';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './pages/Login/Login';
+import Eventos from './pages/Eventos/Eventos';
+import Contato from './pages/Contato/contato';
+import QuemSomos from './pages/QuemSomos/quemSomos';
+import Publicacoes from './pages/Publicacoes/Publicacoes';
+import Admin from './pages/Admin/Admin';
+import PublicacoesAdmin from './pages/Admin/PublicacoesAdmin/PublicacoesAdmin';
+import EventosAdmin from './pages/Admin/EventosAdmin/EventosAdmin';
+import ContasAdmin from './pages/Admin/ContasAdmin/ContasAdmin';
+import MensagensAdmin from './pages/Admin/MensagensAdmin/MensagensAdmin';
+import DiretoriaAdmin from './pages/Admin/DiretoriaAdmin/DiretoriaAdmin';
+import CargosAdmin from './pages/Admin/CargosAdmin/CargosAdmin';
+import ParticlesComp from './components/Particles/Particles';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RoutePages/>
+    <ParticlesComp/>
+      <BrowserRouter>
+      
+          <Routes>   
+            <Route path='/' element={<Geral/>}>
+              <Route path="/inicio" element={<Publicacoes/>}/>
+              <Route path="/eventos" element={<Eventos/>}/>
+              <Route path="/contato" element={<Contato/>}/>
+              <Route path="/quem_somos" element={<QuemSomos/>}/>
+            </Route>      
+            
+            <Route path="/login" element={<Login/>}/>
+            
+            <Route path="/" element={<Admin/>}>
+              <Route path="/admin/publicacoes" component={<PublicacoesAdmin/>}/>
+              <Route path="/admin/eventos" element={<EventosAdmin/>}/>
+              <Route path="/admin/contas" element={<ContasAdmin/>}/>
+              <Route path="/admin/mensagens" element={<MensagensAdmin/>}/>
+              <Route path="/admin/diretoria" element={<DiretoriaAdmin/>}/>
+              <Route path="/admin/cargos" element={<CargosAdmin/>}/>
+            </Route>  
+          </Routes>  
+      </BrowserRouter>
+    
   </React.StrictMode>
 );
 

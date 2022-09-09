@@ -50,8 +50,7 @@ const MensagensAdmin = () => {
                             {/* TODO: FILTERS AND INSERT BUTTON */}
                         </div>
                         <div className="RowTable">
-                            
-                            <table className="MensagensTable">
+                            <table className="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                         <th></th>

@@ -1,7 +1,8 @@
 import "./Login.css";
 import { FaArrowLeft } from "react-icons/fa"
-import { useNavigate } from "react-router-dom"
+import { useHistory, useNavigate } from "react-router-dom"
 import { useState } from "react";
+import Field from "../../components/Field/field";
 
 const Login = () => {
 
@@ -33,17 +34,15 @@ const Login = () => {
                 </div>
                 <div className="ModalBody">
                     <div className="Field">
-                        <label className="LabelField">Email</label>
-                        <input type="email" className="InputField" value={email} onChange={(e) => {setEmail(e.target.value)}} placeholder="Email..."/>
+                        <Field label={"Email"} typeInput={"email"} typeOfField={"input"} classe={"InputField"} get={email} set={setEmail}/>
                     </div>
                     <div className="Field">
-                        <label className="LabelField">Senha</label>
-                        <input type="password" className="InputField" value={password} onChange={(e) => {setPassword(e.target.value)}} placeholder="Senha..."/>
+                        <Field label={"Senha"} typeInput={"password"} typeOfField={"input"} classe={"InputField"} get={password} set={setPassword}/>
                     </div>
                 </div>
                 <div className="ModalFooter">
                     <div className="ButtonBox">
-                        <button onClick={handleOnLogin} className="ButtonLogin">Entrar</button>
+                        <button onClick={handleOnLogin} className="btn btn-primary">Entrar</button>
                     </div>
                 </div>
             </div>

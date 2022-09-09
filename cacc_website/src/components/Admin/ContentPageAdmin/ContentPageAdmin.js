@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import CargosAdmin from "../../../pages/Admin/CargosAdmin/CargosAdmin";
 import ContasAdmin from "../../../pages/Admin/ContasAdmin/ContasAdmin";
 import DiretoriaAdmin from "../../../pages/Admin/DiretoriaAdmin/DiretoriaAdmin";
 import EventosAdmin from "../../../pages/Admin/EventosAdmin/EventosAdmin";
@@ -10,11 +11,12 @@ const ContentPageAdmin = () => {
     return (
         <div className="ContentPageAdmin">
             <Routes>
-                <Route path="/admin/publicacoes" element={<PublicacoesAdmin/>}></Route>
-                <Route path="/admin/eventos" element={<EventosAdmin/>}></Route>
-                <Route path="/admin/contas" element={<ContasAdmin/>}></Route>
-                <Route path="/admin/mensagens" element={<MensagensAdmin/>}></Route>
-                <Route path="/admin/diretoria" element={<DiretoriaAdmin/>}></Route>
+                <Route path="/admin/publicacoes" element={<PublicacoesAdmin/>}/>
+                <Route path="/admin/eventos" element={<EventosAdmin/>}/>
+                <Route path="/admin/contas" element={<ContasAdmin/>}/>
+                <Route path="/admin/mensagens" element={<MensagensAdmin/>}/>
+                <Route path="/admin/diretoria" element={<DiretoriaAdmin/>}/>
+                <Route path="/admin/cargos" element={<CargosAdmin/>}/>
             </Routes>
         </div>
     );

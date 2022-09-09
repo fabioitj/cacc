@@ -3,7 +3,7 @@
     height: 100%;
 }
 
-.Field input, .Field textarea{
+.Field input, .Field textarea, .Field select{
     width: 100%;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.03);
@@ -24,12 +24,25 @@
     height: 150px;
 }
 
-.Field input:focus, .Field textarea:focus{
+.Field select{
+    height: 100%;
+}
+
+.Field select option{
+    padding: 10px;
+    border: 2px solid black;
+}
+
+.Field select option:active{
+    background-color: white;
+}
+
+.Field input:focus, .Field textarea:focus, .Field select:active{
     border-bottom: 2px solid white;
     background-color: rgba(255, 255, 255, 0.1);
     
 }
 
-.Field input::placeholder, .Field textarea::placeholder{
+.Field input::placeholder, .Field textarea::placeholder, .Field select::placeholder{
     color: #C2C2C2;
 }

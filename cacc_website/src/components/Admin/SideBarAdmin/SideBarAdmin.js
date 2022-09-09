@@ -17,6 +17,7 @@ const SideBarAdmin = () => {
                 <Link to="/admin/mensagens"><a href="#"><span>Mensagens</span></a></Link>
                 <Link to="/admin/contas"><a href="#"><span>Contas</span></a></Link>
                 <Link to="/admin/diretoria"><a href="#"><span>Diretoria</span></a></Link>
+                <Link to="/admin/cargos"><a href="#"><span>Cargos</span></a></Link>
             </div>    
         </div>
     );

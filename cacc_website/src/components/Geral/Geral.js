@@ -3,6 +3,8 @@ import Body from "../Body/Body"
 import Navbar from "../Header/Navbar/Navbar"
 import Footer from "../Footer/Footer.js";
 import "./Geral.css";
+import { BrowserRouter, Router, Switch } from "react-router-dom";
+import ParticlesComp from "../Particles/Particles";
 
 const Geral = () => {
     const [scrollPage, setScrollPage] = useState(false);
@@ -17,9 +19,10 @@ const Geral = () => {
 
     return (
         <div className="Geral">
-            <Navbar scrollPage={scrollPage}/>
-            <Body className="GeralBody" scrollPage={scrollPage}/>
-            <Footer/>
+            
+                <Navbar scrollPage={scrollPage}/>
+                <Body className="GeralBody" scrollPage={scrollPage}/>
+                <Footer/>
         </div>
     )
 }

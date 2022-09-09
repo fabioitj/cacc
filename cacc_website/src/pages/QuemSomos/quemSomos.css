@@ -7,6 +7,7 @@
 .QuemSomos{
     width: 100%;
     height: auto;
+    margin-bottom: 50px;
 }
 
 .QuemSomos .QuemSomosBox{
@@ -14,14 +15,14 @@
     height: 100%;
 }
 
-.QuemSomos .QuemSomosBox .QuemSomosBoxHeader{
+.QuemSomos .QuemSomosBox .QuemSomosBoxHeader, .QuemSomosEmpty .QuemSomosBox .QuemSomosBoxHeader{
     width: 100%;
     height: 50px;
     margin: 0 0 50px 0;
     text-align: center;
 }
 
-.QuemSomos .QuemSomosBox .QuemSomosBoxHeader h2{
+.QuemSomos .QuemSomosBox .QuemSomosBoxHeader h2, .QuemSomosEmpty .QuemSomosBox .QuemSomosBoxHeader h2{
     width: 100%;
     height: 100%;
     color: white;
@@ -36,8 +37,32 @@
     padding: 15px;
 }
 
+.QuemSomosEmpty{
+    width: 100%;
+    height: 100vh;
+}
+
+.QuemSomosEmpty .QuemSomosBox .QuemSomosBoxBody{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.QuemSomosEmpty .QuemSomosBox .QuemSomosBoxBody h2{
+    color: white;
+}
+
+.QuemSomosEmpty .QuemSomosBox .QuemSomosBoxBody h2 b{
+    font-size: 52px;
+}
+
 @media (max-width: 700px){
     .QuemSomos{
         margin-top: calc(100% - 250px);
+    }
+
+    .ContentPage{
+        width: 90% !important;
     }
 }

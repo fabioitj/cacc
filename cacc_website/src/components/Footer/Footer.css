@@ -3,6 +3,7 @@
     height: 400px;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .Footer .FirstLayer{
@@ -138,3 +139,56 @@
     transform: scale(1.1);
 }
 
+@media (max-width: 900px){
+    .Footer{
+        width: 100%;
+        height: min-content;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .Footer .FirstLayer{
+        width: 100%;
+        height: 81.25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #002E5D;
+    }
+    
+    .Footer .SecondLayer{
+        width: 100%;
+        height: 18.75%;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #002453;
+    }
+
+    .Footer .FirstLayerBox .ColumnBox, .Footer .SecondLayer .ColumnBox{
+
+        flex-direction: column;
+    }
+
+    .Footer .Column4{
+        height: 100%;
+        width: 100%;
+        /* background-color: blue; */
+        padding: 10px;
+        display: flex;
+        align-items: flex-start;
+        /* justify-content: center; */
+    }
+
+    .Footer .Column6{
+        height: 100%;
+        width: 100%;
+        /* background-color: red; */
+        text-align: left;
+        padding: 10px;
+    }
+
+    .Footer .Column6:nth-child(1){
+        padding-left: 0;
+    }
+}

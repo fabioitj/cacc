@@ -9,7 +9,8 @@ namespace WsCACC.Model
     {
         public string iddiretoria { get; set; }
         public string nome { get; set; }
-        public string cargo { get; set; }
+        public string idcargo { get; set; }
+        public string dscargo { get; set; }
         public string apresentacao { get; set; }
         public string imagem { get; set; }
         public string ativo { get; set; }
@@ -19,10 +20,24 @@ namespace WsCACC.Model
     {
         public string iddiretoria { get; set; }
         public string nome { get; set; }
-        public string cargo { get; set; }
+        public string idcargo { get; set; }
         public string apresentacao { get; set; }
         public string imagem { get; set; }
         
+        public string getId()
+        {
+            return this.iddiretoria;
+        }
+    }
+
+    public class UpdateDiretoria
+    {
+        public string iddiretoria { get; set; }
+        public string nome { get; set; }
+        public string idcargo { get; set; }
+        public string apresentacao { get; set; }
+        public string imagem { get; set; }
+
         public string getId()
         {
             return this.iddiretoria;

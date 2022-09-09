@@ -19,8 +19,10 @@ function deleteRegistro(id){
 }
 
 function createRegistro(obj){
-    console.log(obj);
-    return axios.post(url + "Diretoria/createRegistro", obj);
+    if(obj.iddiretoria == "" || obj.iddiretoria == null || obj.iddiretoria == undefined)
+        return axios.post(url + "Diretoria/createRegistro", obj);
+    else
+        return axios.put(url + "Diretoria/updateRegistro", obj);
 }
 
 

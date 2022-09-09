@@ -6,7 +6,8 @@
 
 .Contato{
     width: 100%;
-    height: 100vh;
+    height: 90vh;
+    position: relative;
 }
 
 .CoolText{
@@ -125,4 +126,38 @@
     font-size: 32px;
     cursor: pointer;
    
+}
+
+.BtnEnviarComentario button {
+    padding: 5px;
+}
+
+@media (max-width: 700px){
+    .Contato{
+        height: 150vh;
+    }
+
+    .ColumnField{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        gap: 10px;
+    } 
+
+    .Column6{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .FormularioBox{
+        margin-top: 350px;
+    }
 }

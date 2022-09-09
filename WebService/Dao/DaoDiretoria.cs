@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using WsCACC.Model;
 
@@ -10,6 +11,34 @@ namespace WsCACC.Dao
 {
     public class DaoDiretoria
     {
+        public bool updateRegistro(UpdateDiretoria model)
+        {
+            ConnectionMySql conexao = new ConnectionMySql();
+            try
+            {
+                string sql = $@"UPDATE
+                                    CACC.DIRETORIA
+                                SET
+                                    NOME = '{model.nome}',
+                                    IDCARGO = '{model.idcargo}',
+                                    APRESENTACAO = '{model.apresentacao}',
+                                    IMAGEM = '{model.imagem}'
+                                WHERE
+                                    IDDIRETORIA = '{model.iddiretoria}'";
+
+                conexao.StartTransaction();
+                conexao.ExecuteNonQuery(sql);
+                conexao.CommitTransaction();
+
+                return true;
+            }
+            catch(Exception ex)
+            {
+                conexao.RollBackTransaction();
+                throw ex;
+            }
+        }
+
         public bool createRegistro(CreateDiretoria model)
         {
             ConnectionMySql conexao = new ConnectionMySql();
@@ -19,20 +48,18 @@ namespace WsCACC.Dao
                                         CACC.DIRETORIA
                                         (
                                             NOME,
-                                            CARGO,
+                                            IDCARGO,
                                             APRESENTACAO,
                                             IMAGEM,
-                                            ATIVO,
-                                            ORDEM
+                                            ATIVO
                                         )
                                         VALUES
                                         (
                                             '{model.nome}',
-                                            '{model.cargo}',
+                                            '{model.idcargo}',
                                             '{model.apresentacao}',
                                             '{model.imagem}',
-                                            'S',
-                                            2
+                                            'S'
                                         )";
 
                 conexao.StartTransaction();
@@ -42,6 +69,7 @@ namespace WsCACC.Dao
             }
             catch(Exception ex)
             {
+                conexao.RollBackTransaction();
                 throw ex;
             }
         }
@@ -51,20 +79,22 @@ namespace WsCACC.Dao
             ConnectionMySql conexao = new ConnectionMySql();
             try
             {
-                string sql = $@"SELECT
-                                    IDDIRETORIA,
-                                    NOME,
-                                    CARGO,
-                                    APRESENTACAO,
-                                    IMAGEM,
-                                    ATIVO
-                                FROM
-                                    CACC.DIRETORIA
-                                WHERE 
-                                    ATIVO = 'S'
-                                ORDER BY
-                                    ORDEM
-                                ASC";
+                string sql = $@"select
+	                                di.iddiretoria,
+                                    di.nome,
+                                    di.apresentacao,
+                                    di.ativo,
+                                    di.imagem,
+                                    carg.idcargo,
+                                    carg.descricao
+                                from
+	                                cacc.diretoria di
+                                    LEFT JOIN cacc.cargos carg 
+                                    ON di.idcargo = carg.idcargo
+                                where
+	                                di.ativo = 'S'
+                                order by
+	                                carg.ordem";
 
                 MySqlDataReader table = conexao.ExecuteQuery(sql);
                 List<Diretoria> diretoria = new List<Diretoria>();
@@ -73,9 +103,14 @@ namespace WsCACC.Dao
                     Diretoria item = new Diretoria();
                     item.iddiretoria = table["IDDIRETORIA"].ToString();
                     item.nome = table["NOME"].ToString();
-                    item.cargo = table["CARGO"].ToString();
+                    item.idcargo = table["IDCARGO"].ToString();
+                    item.dscargo = table["DESCRICAO"].ToString();
                     item.apresentacao = table["APRESENTACAO"].ToString();
-                    item.imagem = table["IMAGEM"].ToString();
+
+                    byte[] byteImage = (byte[])table["IMAGEM"];
+                    if (byteImage.Length > 0)
+                        item.imagem = "data:image/png;base64," + BinaryToText(byteImage);
+
                     item.ativo = table["ATIVO"].ToString();
 
                     diretoria.Add(item);
@@ -94,23 +129,32 @@ namespace WsCACC.Dao
             }
         }
 
+        public string BinaryToText(byte[] data)
+        {
+            return Encoding.UTF8.GetString(data);
+        }
+
         public List<Diretoria> getFullDiretoria()
         {
             ConnectionMySql conexao = new ConnectionMySql();
             try
             {
-                string sql = $@"SELECT
-                                    IDDIRETORIA,
-                                    NOME,
-                                    CARGO,
-                                    APRESENTACAO,
-                                    IMAGEM,
-                                    ATIVO
-                                FROM
-                                    CACC.DIRETORIA
-                                ORDER BY
-                                    ORDEM
-                                ASC";
+                string sql = $@"select
+	                                di.iddiretoria,
+                                    di.nome,
+                                    di.apresentacao,
+                                    di.ativo,
+                                    di.imagem,
+                                    carg.idcargo,
+                                    carg.descricao
+                                from
+	                                cacc.diretoria di
+                                    LEFT JOIN cacc.cargos carg 
+                                    ON di.idcargo = carg.idcargo
+                                where
+	                                di.ativo = 'S'
+                                order by
+	                                carg.ordem";
 
                 MySqlDataReader table = conexao.ExecuteQuery(sql);
                 List<Diretoria> diretoria = new List<Diretoria>();
@@ -119,9 +163,15 @@ namespace WsCACC.Dao
                     Diretoria item = new Diretoria();
                     item.iddiretoria = table["IDDIRETORIA"].ToString();
                     item.nome = table["NOME"].ToString();
-                    item.cargo = table["CARGO"].ToString();
+                    item.idcargo = table["IDCARGO"].ToString();
+                    item.dscargo = table["DESCRICAO"].ToString();
                     item.apresentacao = table["APRESENTACAO"].ToString();
-                    item.imagem = table["IMAGEM"].ToString();
+
+                    byte[] byteImage = (byte[])table["IMAGEM"];
+                    if(byteImage.Length > 0)
+                        item.imagem = "data:image/png;base64," + BinaryToText(byteImage);
+
+                    //item.imagem = table["IMAGEM"].ToString();
                     item.ativo = table["ATIVO"].ToString();
 
                     diretoria.Add(item);
@@ -145,25 +195,30 @@ namespace WsCACC.Dao
             ConnectionMySql conexao = new ConnectionMySql();
             try
             {
-                string sql = $@"SELECT
-                                    IDDIRETORIA,
-                                    NOME,
-                                    CARGO,
-                                    APRESENTACAO,
-                                    IMAGEM,
-                                    ATIVO
-                                FROM
-                                    CACC.DIRETORIA
-                                WHERE 
-                                    IDDIRETORIA = '{id}'";
+                string sql = $@"select
+	                                di.iddiretoria,
+                                    di.nome,
+                                    di.apresentacao,
+                                    di.ativo,
+                                    di.imagem,
+                                    carg.idcargo,
+                                    carg.descricao
+                                from
+	                                cacc.diretoria di
+                                    LEFT JOIN cacc.cargos carg 
+                                    ON di.idcargo = carg.idcargo
+                                where
+	                                di.iddiretoria = '{id}'
+                                order by
+	                                carg.ordem";
 
                 MySqlDataReader table = conexao.ExecuteQuery(sql);
                 Diretoria diretoria = new Diretoria();
                 while (table.Read())
                 {
                     diretoria.iddiretoria = table["IDDIRETORIA"].ToString();
-                    diretoria.nome = table["NOME"].ToString();
-                    diretoria.cargo = table["CARGO"].ToString();
+                    diretoria.idcargo = table["IDCARGO"].ToString();
+                    diretoria.dscargo = table["DESCRICAO"].ToString();
                     diretoria.apresentacao = table["APRESENTACAO"].ToString();
                     diretoria.imagem = table["IMAGEM"].ToString();
                     diretoria.ativo = table["ATIVO"].ToString();
@@ -186,25 +241,30 @@ namespace WsCACC.Dao
         {
             try
             {
-                string sql = $@"SELECT
-                                    IDDIRETORIA,
-                                    NOME,
-                                    CARGO,
-                                    APRESENTACAO,
-                                    IMAGEM,
-                                    ATIVO
-                                FROM
-                                    CACC.DIRETORIA
-                                WHERE 
-                                    IDDIRETORIA = '{id}'";
+                string sql = $@"select
+	                                di.iddiretoria,
+                                    di.nome,
+                                    di.apresentacao,
+                                    di.ativo,
+                                    di.imagem,
+                                    carg.idcargo,
+                                    carg.descricao
+                                from
+	                                cacc.diretoria di
+                                    LEFT JOIN cacc.cargos carg 
+                                    ON di.idcargo = carg.idcargo
+                                where
+	                                di.iddiretoria = '{id}'
+                                order by
+	                                carg.ordem";
 
                 MySqlDataReader table = conexao.ExecuteQuery(sql);
                 Diretoria diretoria = new Diretoria();
                 while (table.Read())
                 {
                     diretoria.iddiretoria = table["IDDIRETORIA"].ToString();
-                    diretoria.nome = table["NOME"].ToString();
-                    diretoria.cargo = table["CARGO"].ToString();
+                    diretoria.idcargo = table["IDCARGO"].ToString();
+                    diretoria.dscargo = table["DESCRICAO"].ToString();
                     diretoria.apresentacao = table["APRESENTACAO"].ToString();
                     diretoria.imagem = table["IMAGEM"].ToString();
                     diretoria.ativo = table["ATIVO"].ToString();
