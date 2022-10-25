@@ -64,8 +64,8 @@ const ParticlesComp = () => {
                         default: "bounce",
                     },
                     random: true,
-                    speed: 6,
-                    straight: true,
+                    speed: 10,
+                    straight: false,
                 },
                 number: {
                     density: {

@@ -11,11 +11,13 @@ const Geral = () => {
     window.onscroll = () => { 
         let offSetScreen = window.pageYOffset;
         console.log(offSetScreen);
-        if(offSetScreen > 100)
+        if(offSetScreen > 50)
             setScrollPage(true);
         else
             setScrollPage(false);
     };
+
+
 
     return (
         <div className="Geral">

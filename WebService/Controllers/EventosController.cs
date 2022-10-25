@@ -19,6 +19,35 @@ namespace WsCACC.Controllers
         /// </returns>
         /// <response code="200">Sucess</response>
         [HttpGet("[Action]")]
+        public JsonResult getEventoById(string id)
+        {
+            Retorno retorno = new Retorno();
+            try
+            {
+                DaoEventos daoEventos = new DaoEventos();
+                object data = daoEventos.getEventoById(id);
+
+                retorno.data = data;
+                retorno.success = true;
+
+                return new JsonResult(retorno);
+            }
+            catch (Exception ex)
+            {
+                retorno.addItem(ex.Message);
+                retorno.success = false;
+
+                return new JsonResult(retorno);
+            }
+        }
+
+        /// <summary>
+        /// Retorna os registros de eventos
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        /// <response code="200">Sucess</response>
+        [HttpGet("[Action]")]
         public JsonResult getEventos()
         {
             Retorno retorno = new Retorno();

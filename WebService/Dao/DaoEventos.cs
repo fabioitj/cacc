@@ -11,6 +11,43 @@ namespace WsCACC.Dao
 {
     public class DaoEventos
     {
+        public EventoModel getEventoById(string id)
+        {
+            ConnectionMySql conexao = new ConnectionMySql();
+            try
+            {
+                string sql = $@"SELECT
+                                    IDEVENTO,
+                                    TITULO,
+                                    SUBTITULO,
+                                    IMAGEM
+                                FROM
+                                    CACC.EVENTOS
+                                WHERE
+                                    IDEVENTO = '{id}'";
+
+                MySqlDataReader table = conexao.ExecuteQuery(sql);
+                EventoModel m = new EventoModel();
+                while (table.Read())
+                {
+                    m.idevento = table["IDEVENTO"].ToString();
+                    m.titulo = table["TITULO"].ToString();
+                    m.subtitulo = table["SUBTITULO"].ToString();
+                    byte[] byteImage = (byte[])table["IMAGEM"];
+                    if (byteImage.Length > 0)
+                        m.imagem = "data:image/png;base64," + BinaryToText(byteImage);
+                    
+                }
+                table.Close();
+
+                return m;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<EventoModel> getEventos()
         {
             ConnectionMySql conexao = new ConnectionMySql();

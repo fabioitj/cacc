@@ -13,6 +13,35 @@ namespace WsCACC.Controllers
     public class DiretoriaController : ControllerBase
     {
         /// <summary>
+        /// Retorna os registros de cargos
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        /// <response code="200">Sucess</response>
+        [HttpGet("{id}")]
+        public JsonResult getDiretoriaById(string id)
+        {
+            Retorno retorno = new Retorno();
+            try
+            {
+                DaoDiretoria daoDiretoria = new DaoDiretoria();
+                object data = daoDiretoria.getDiretoriaById(id);
+
+                retorno.data = data;
+                retorno.success = true;
+
+                return new JsonResult(retorno);
+            }
+            catch (Exception ex)
+            {
+                retorno.addItem(ex.Message);
+                retorno.success = false;
+
+                return new JsonResult(retorno);
+            }
+        }
+
+        /// <summary>
         /// Retorna os registros da diretoria ativos
         /// </summary>
         /// <returns>

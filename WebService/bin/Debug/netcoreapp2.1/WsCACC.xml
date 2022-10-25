@@ -40,6 +40,14 @@
             </returns>
             <response code="200">Sucess</response>
         </member>
+        <member name="M:WsCACC.Controllers.CargosController.getCargosById(System.String)">
+            <summary>
+            Retorna os registros de cargos
+            </summary>
+            <returns>
+            </returns>
+            <response code="200">Sucess</response>
+        </member>
         <member name="M:WsCACC.Controllers.CargosController.createRegistro(WsCACC.Model.CargoCreateModel)">
             <summary>
             Cria um registro
@@ -104,6 +112,14 @@
             Controlador Quem Somos
             </summary>    
         </member>
+        <member name="M:WsCACC.Controllers.DiretoriaController.getDiretoriaById(System.String)">
+            <summary>
+            Retorna os registros de cargos
+            </summary>
+            <returns>
+            </returns>
+            <response code="200">Sucess</response>
+        </member>
         <member name="M:WsCACC.Controllers.DiretoriaController.getDiretoria">
             <summary>
             Retorna os registros da diretoria ativos
@@ -160,6 +176,14 @@
             <summary>
             Controlador Cargos
             </summary>    
+        </member>
+        <member name="M:WsCACC.Controllers.EventosController.getEventoById(System.String)">
+            <summary>
+            Retorna os registros de eventos
+            </summary>
+            <returns>
+            </returns>
+            <response code="200">Sucess</response>
         </member>
         <member name="M:WsCACC.Controllers.EventosController.getEventos">
             <summary>

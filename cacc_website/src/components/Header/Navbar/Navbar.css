@@ -1,25 +1,41 @@
-.Navbar{
+.navbar{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 125px;
     position: fixed;
     top: 0;
     left: 0;
     margin: 0 auto;
     transition: 0.2s all;
+    background-color: transparent !important;
     z-index: 9999;
 }
 
+.collapse, .navbar-collapse{
+    justify-content: flex-end !important;
+}
+
+.navbar-nav, .me-auto, .mb-2, .mb-lg-0{
+    margin: 0 !important;
+}
+
+.navbar-toggler, .navbar-toggler-icon{
+    background-color: var(--bs-primary) !important;
+}
+
+.navbar-android{
+    background-color: rgba(0, 0, 40, 0.9) !important;
+}
+
 .NavbarScrolled{
-    height: 150px;
-    background-color: rgba(0, 0, 40, 0.9);
+
+    background-color: rgba(0, 0, 40, 0.9) !important;
     box-shadow: 0 0 30px 2px black;
 }
 
-.Navbar .LogoBox{
+.LogoBox{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,26 +43,26 @@
     transition: 0.2s all;
 }
 
-.Navbar .LogoBoxScrolled{
+.LogoBoxScrolled{
     margin-left: 50px;
 }
 
-.Navbar .LogoBox .LogoImage{
+.LogoImage{
     content: url("../../../../public/logo.png");
     width: 100px;
     transition: 0.2s all;
     cursor: pointer;
 }
 
-.Navbar .LogoBox .LogoImage:hover{
+.LogoImage:hover{
     transform: scale(1.1)
 }
 
-.Navbar .LogoBox .LogoImageScrolled{
+.LogoImageScrolled{
     width: 115px;
 }
 
-.Navbar .UBox{
+.UBox{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,11 +70,11 @@
     transition: 0.2s all;
 }
 
-.Navbar .UBoxScrolled{
+.UBoxScrolled{
     margin-right: 50px;
 }
 
-.Navbar .UBox ul{
+ul{
     display: flex;
     flex-direction: row;
     gap: 15px;
@@ -66,7 +82,7 @@
     margin: 0 !important;
 }
 
-.Navbar .UBox ul li {
+ul li {
     display: inline;
     color: white;
     padding: 10px 25px 10px 25px;
@@ -74,7 +90,7 @@
     border-bottom: transparent;
 }
 
-.Navbar .UBox ul li .UBoxLink{
+ul li .UBoxLink{
     width: 100%;
     height: 100%;
 }
@@ -82,11 +98,11 @@
 
 
 
-.Navbar .UBox ul li:hover {
+ul li:hover {
     border-bottom: 3px solid white;
 }
 
-.Navbar .UBox ul li a{
+ul li a{
     text-decoration: none;
     color: white;
     height: 100%;
@@ -95,7 +111,7 @@
     text-transform: uppercase;
 }
 
-.Navbar .UBoxScrolled ul li{
+ul li{
     padding: 10px 30px 10px 30px;
 }
 

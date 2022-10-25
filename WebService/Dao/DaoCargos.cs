@@ -10,6 +10,39 @@ namespace WsCACC.Dao
 {
     public class DaoCargos
     {
+        public CargoModel getCargosById(string id)
+        {
+            ConnectionMySql conexao = new ConnectionMySql();
+            try
+            {
+                string sql = $@"SELECT
+                                    IDCARGO,
+                                    DESCRICAO,
+                                    ORDEM
+                                FROM
+                                    CACC.CARGOS
+                                WHERE
+                                    IDCARGO = '{id}'
+                                ORDER BY
+                                    ORDEM";
+
+                MySqlDataReader table = conexao.ExecuteQuery(sql);
+                CargoModel m = new CargoModel();
+                while (table.Read())
+                {
+                    m.idcargo = table["IDCARGO"].ToString();
+                    m.descricao = table["DESCRICAO"].ToString();
+                    m.ordem = table["ORDEM"].ToString();
+                }
+
+                return m;
+            }
+            catch(Exception ex)
+            {
+                throw ex; 
+            }
+        }
+
         public List<CargoModel> getFullCargos()
         {
             ConnectionMySql conexao = new ConnectionMySql();
