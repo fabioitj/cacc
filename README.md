@@ -1,6 +1,3 @@
-# cacc
-cacc
-
 # Instalações
 
 .NET 5.0 ||
