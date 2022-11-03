@@ -1,0 +1,786 @@
+{
+	"info": {
+		"_postman_id": "b4ed82ea-25a0-4a66-b0d5-0e1198321ece",
+		"name": "CACC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8371203"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "signin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"teste\",\r\n  \"password\": \"teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44362/api/Auth/signin",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cargos",
+			"item": [
+				{
+					"name": "getFull",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlIiwidW5pcXVlX25hbWUiOiJ0ZXN0ZSIsIm5iZiI6MTY2NzQxOTU3NCwiZXhwIjoxNjY3NDQ4Mzc0LCJpYXQiOjE2Njc0MTk1NzR9.6-NxezwMqHnSAn9hcTGa__uxiRn-RjWQVeBz4rDu9cI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44362/api/Cargos/getFullCargos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Cargos",
+								"getFullCargos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlIiwidW5pcXVlX25hbWUiOiJ0ZXN0ZSIsIm5iZiI6MTY2NzQxOTU3NCwiZXhwIjoxNjY3NDQ4Mzc0LCJpYXQiOjE2Njc0MTk1NzR9.6-NxezwMqHnSAn9hcTGa__uxiRn-RjWQVeBz4rDu9cI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44362/api/Cargos/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Cargos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlIiwidW5pcXVlX25hbWUiOiJ0ZXN0ZSIsIm5iZiI6MTY2NzQxOTU3NCwiZXhwIjoxNjY3NDQ4Mzc0LCJpYXQiOjE2Njc0MTk1NzR9.6-NxezwMqHnSAn9hcTGa__uxiRn-RjWQVeBz4rDu9cI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"descricao\": \"Teste\",\r\n  \"ordem\": \"4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44362/api/Cargos/createRegistro",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Cargos",
+								"createRegistro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "put",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlIiwidW5pcXVlX25hbWUiOiJ0ZXN0ZSIsIm5iZiI6MTY2NzQxOTU3NCwiZXhwIjoxNjY3NDQ4Mzc0LCJpYXQiOjE2Njc0MTk1NzR9.6-NxezwMqHnSAn9hcTGa__uxiRn-RjWQVeBz4rDu9cI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idcargo\": \"7\",\r\n  \"descricao\": \"Teste 2\",\r\n  \"ordem\": \"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44362/api/Cargos/updateRegistro",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Cargos",
+								"updateRegistro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlIiwidW5pcXVlX25hbWUiOiJ0ZXN0ZSIsIm5iZiI6MTY2NzQxOTU3NCwiZXhwIjoxNjY3NDQ4Mzc0LCJpYXQiOjE2Njc0MTk1NzR9.6-NxezwMqHnSAn9hcTGa__uxiRn-RjWQVeBz4rDu9cI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44362/api/Cargos/deleteRegistro?id=7",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Cargos",
+								"deleteRegistro"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contato",
+			"item": [
+				{
+					"name": "getFull",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlIiwidW5pcXVlX25hbWUiOiJ0ZXN0ZSIsIm5iZiI6MTY2NzQxOTU3NCwiZXhwIjoxNjY3NDQ4Mzc0LCJpYXQiOjE2Njc0MTk1NzR9.6-NxezwMqHnSAn9hcTGa__uxiRn-RjWQVeBz4rDu9cI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44362/api/Contato/getComentarios",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Contato",
+								"getComentarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlIiwidW5pcXVlX25hbWUiOiJ0ZXN0ZSIsIm5iZiI6MTY2NzQxOTU3NCwiZXhwIjoxNjY3NDQ4Mzc0LCJpYXQiOjE2Njc0MTk1NzR9.6-NxezwMqHnSAn9hcTGa__uxiRn-RjWQVeBz4rDu9cI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44362/api/Contato/getComentarioById?id=6",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Contato",
+								"getComentarioById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"teste\",\r\n  \"nome\": \"teste\",\r\n  \"obs\": \"teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44362/api/Contato/sendComentario",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Contato",
+								"sendComentario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "put",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlIiwidW5pcXVlX25hbWUiOiJ0ZXN0ZSIsIm5iZiI6MTY2NzQxOTU3NCwiZXhwIjoxNjY3NDQ4Mzc0LCJpYXQiOjE2Njc0MTk1NzR9.6-NxezwMqHnSAn9hcTGa__uxiRn-RjWQVeBz4rDu9cI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idcomentario\": \"8\",\r\n  \"obs\": \"teste teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44362/api/Contato/updateComentario",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Contato",
+								"updateComentario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlIiwidW5pcXVlX25hbWUiOiJ0ZXN0ZSIsIm5iZiI6MTY2NzQxOTU3NCwiZXhwIjoxNjY3NDQ4Mzc0LCJpYXQiOjE2Njc0MTk1NzR9.6-NxezwMqHnSAn9hcTGa__uxiRn-RjWQVeBz4rDu9cI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44362/api/Contato/deleteRegistro?id=8",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Contato",
+								"deleteRegistro"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Diretoria",
+			"item": [
+				{
+					"name": "getFull",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlIiwidW5pcXVlX25hbWUiOiJ0ZXN0ZSIsIm5iZiI6MTY2NzQxOTU3NCwiZXhwIjoxNjY3NDQ4Mzc0LCJpYXQiOjE2Njc0MTk1NzR9.6-NxezwMqHnSAn9hcTGa__uxiRn-RjWQVeBz4rDu9cI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44362/api/Diretoria/getFullDiretoria",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Diretoria",
+								"getFullDiretoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlIiwidW5pcXVlX25hbWUiOiJ0ZXN0ZSIsIm5iZiI6MTY2NzQxOTU3NCwiZXhwIjoxNjY3NDQ4Mzc0LCJpYXQiOjE2Njc0MTk1NzR9.6-NxezwMqHnSAn9hcTGa__uxiRn-RjWQVeBz4rDu9cI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44362/api/Diretoria/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Diretoria",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlIiwidW5pcXVlX25hbWUiOiJ0ZXN0ZSIsIm5iZiI6MTY2NzQxOTU3NCwiZXhwIjoxNjY3NDQ4Mzc0LCJpYXQiOjE2Njc0MTk1NzR9.6-NxezwMqHnSAn9hcTGa__uxiRn-RjWQVeBz4rDu9cI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Teste\",\r\n  \"idcargo\": \"2\",\r\n  \"apresentacao\": \"Teste\",\r\n  \"imagem\": \"Teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44362/api/Diretoria/createRegistro",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Diretoria",
+								"createRegistro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "put",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlIiwidW5pcXVlX25hbWUiOiJ0ZXN0ZSIsIm5iZiI6MTY2NzQxOTU3NCwiZXhwIjoxNjY3NDQ4Mzc0LCJpYXQiOjE2Njc0MTk1NzR9.6-NxezwMqHnSAn9hcTGa__uxiRn-RjWQVeBz4rDu9cI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"iddiretoria\": \"3\",\r\n  \"nome\": \"Teste2\",\r\n  \"idcargo\": \"2\",\r\n  \"apresentacao\": \"Teste2\",\r\n  \"imagem\": \"Teste2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44362/api/Diretoria/updateRegistro",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Diretoria",
+								"updateRegistro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlIiwidW5pcXVlX25hbWUiOiJ0ZXN0ZSIsIm5iZiI6MTY2NzQxOTU3NCwiZXhwIjoxNjY3NDQ4Mzc0LCJpYXQiOjE2Njc0MTk1NzR9.6-NxezwMqHnSAn9hcTGa__uxiRn-RjWQVeBz4rDu9cI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44362/api/Diretoria/deleteRegistro?id=3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Diretoria",
+								"deleteRegistro"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Eventos",
+			"item": [
+				{
+					"name": "getFull",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlIiwidW5pcXVlX25hbWUiOiJ0ZXN0ZSIsIm5iZiI6MTY2NzQxOTU3NCwiZXhwIjoxNjY3NDQ4Mzc0LCJpYXQiOjE2Njc0MTk1NzR9.6-NxezwMqHnSAn9hcTGa__uxiRn-RjWQVeBz4rDu9cI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44362/api/Eventos/getEventos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Eventos",
+								"getEventos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlIiwidW5pcXVlX25hbWUiOiJ0ZXN0ZSIsIm5iZiI6MTY2NzQxOTU3NCwiZXhwIjoxNjY3NDQ4Mzc0LCJpYXQiOjE2Njc0MTk1NzR9.6-NxezwMqHnSAn9hcTGa__uxiRn-RjWQVeBz4rDu9cI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44362/api/Eventos/getEventoById?id=3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Eventos",
+								"getEventoById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlIiwidW5pcXVlX25hbWUiOiJ0ZXN0ZSIsIm5iZiI6MTY2NzQxOTU3NCwiZXhwIjoxNjY3NDQ4Mzc0LCJpYXQiOjE2Njc0MTk1NzR9.6-NxezwMqHnSAn9hcTGa__uxiRn-RjWQVeBz4rDu9cI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"titulo\": \"Teste\",\r\n  \"subtitulo\": \"teste\",\r\n  \"imagem\": \"teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44362/api/Eventos/createRegistro",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Eventos",
+								"createRegistro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "put",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlIiwidW5pcXVlX25hbWUiOiJ0ZXN0ZSIsIm5iZiI6MTY2NzQxOTU3NCwiZXhwIjoxNjY3NDQ4Mzc0LCJpYXQiOjE2Njc0MTk1NzR9.6-NxezwMqHnSAn9hcTGa__uxiRn-RjWQVeBz4rDu9cI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idevento\": \"7\",\r\n  \"titulo\": \"Teste23\",\r\n  \"subtitulo\": \"Teste23\",\r\n  \"imagem\": \"Teste23\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44362/api/Eventos/updateRegistro",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Eventos",
+								"updateRegistro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlIiwidW5pcXVlX25hbWUiOiJ0ZXN0ZSIsIm5iZiI6MTY2NzQxOTU3NCwiZXhwIjoxNjY3NDQ4Mzc0LCJpYXQiOjE2Njc0MTk1NzR9.6-NxezwMqHnSAn9hcTGa__uxiRn-RjWQVeBz4rDu9cI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44362/api/Eventos/deleteRegistro?id=7",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44362",
+							"path": [
+								"api",
+								"Eventos",
+								"deleteRegistro"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
