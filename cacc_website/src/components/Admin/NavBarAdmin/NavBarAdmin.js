@@ -27,7 +27,7 @@ const NavBarAdmin = () => {
                 <div className={settingsClicked ? "SettingsPopUp" : "SettingsPopUp SettingsPopUpShowed"}>
                     <div className="SettingsPopUpItem">
                         <div className="SettingsPopUpImage">
-                            <Link to="/inicio"><FaSignOutAlt/></Link>
+                            <Link to="/eventos"><FaSignOutAlt/></Link>
                         </div>
                     </div>
                 </div>
