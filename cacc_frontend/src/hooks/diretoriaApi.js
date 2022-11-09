@@ -1,29 +1,25 @@
 import axios from "axios";
-
-const url = "http://localhost/WsCACCNew/api/v1/";
+import {url, config} from "./https.js";
 
 function getDiretoria(){
+    // console.log("URL REQUEST: ", url + "Diretoria/getDiretoria")
     return axios.get(url + "Diretoria/getDiretoria");
 }
 
-function getFullDiretoria(){
-    return axios.get(url + "Diretoria/getFullDiretoria");
-}
-
 function alternarAtividade(id){
-    return axios.put(url + "Diretoria/alterarStatus?id=" + id);
+    return axios.put(url + "Diretoria/alterarStatus?id=" + id, config);
 }
 
 function deleteRegistro(id){
-    return axios.delete(url + "Diretoria/deleteRegistro?id=" + id)
+    return axios.delete(url + "Diretoria/deleteRegistro?id=" + id, config)
 }
 
 function createRegistro(obj){
     if(obj.iddiretoria == "" || obj.iddiretoria == null || obj.iddiretoria == undefined)
-        return axios.post(url + "Diretoria/createRegistro", obj);
+        return axios.post(url + "Diretoria/createRegistro", obj, config);
     else
-        return axios.put(url + "Diretoria/updateRegistro", obj);
+        return axios.put(url + "Diretoria/updateRegistro", obj, config);
 }
 
 
-export {getDiretoria, getFullDiretoria, alternarAtividade, deleteRegistro, createRegistro};
+export {getDiretoria, alternarAtividade, deleteRegistro, createRegistro};

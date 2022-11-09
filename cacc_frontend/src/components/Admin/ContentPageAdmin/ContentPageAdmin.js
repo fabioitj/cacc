@@ -11,9 +11,9 @@ const ContentPageAdmin = () => {
     return (
         <div className="ContentPageAdmin">
             <Routes>
-                <Route path="/admin/publicacoes" element={<PublicacoesAdmin/>}/>
+                {/* <Route path="/admin/publicacoes" element={<PublicacoesAdmin/>}/> */}
                 <Route path="/admin/eventos" element={<EventosAdmin/>}/>
-                <Route path="/admin/contas" element={<ContasAdmin/>}/>
+                {/* <Route path="/admin/contas" element={<ContasAdmin/>}/> */}
                 <Route path="/admin/mensagens" element={<MensagensAdmin/>}/>
                 <Route path="/admin/diretoria" element={<DiretoriaAdmin/>}/>
                 <Route path="/admin/cargos" element={<CargosAdmin/>}/>

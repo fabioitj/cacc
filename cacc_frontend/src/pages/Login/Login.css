@@ -43,10 +43,9 @@
     height: 100%;
 }
 
-.Login .ModalLogin .ModalHeader .ModalHeaderTitle img{
-    height: 100%;
-    content: url("../../../public/logo.png");
+.Login .ModalLogin .ModalHeader .ModalHeaderTitle h3{
     margin-top: 30px;
+    color: white;
 }
 
 

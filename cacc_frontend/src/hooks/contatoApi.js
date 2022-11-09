@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const url = "http://localhost/WsCACCNew/api/v1/";
+import {url, config} from "./https.js";
 
 function sendComentario(email, nome, obs){
     return axios.post(url + "Contato/sendComentario?email="+email + "&nome="+nome + "&obs="+obs);

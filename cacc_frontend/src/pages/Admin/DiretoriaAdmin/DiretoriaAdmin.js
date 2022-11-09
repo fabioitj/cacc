@@ -1,11 +1,10 @@
 import "./DiretoriaAdmin.css";
 import { useEffect, useState } from "react";
-import { getFullDiretoria, alternarAtividade, deleteRegistro, createRegistro } from "../../../hooks/diretoriaApi";
+import { getDiretoria, alternarAtividade, deleteRegistro, createRegistro } from "../../../hooks/diretoriaApi";
 import { getFullCargos } from "../../../hooks/cargosApi";
-import { FaImage, FaRegEdit, FaHandPointUp, FaHandPointDown, FaTrash, FaPlus } from "react-icons/fa";
+import { FaRegEdit, FaHandPointUp, FaHandPointDown, FaTrash, FaPlus } from "react-icons/fa";
 import { Button } from "reactstrap";
 import Modal from "../../../components/Modal/Modal";
-import { useDropzone } from "react-dropzone";
 import Field from "../../../components/Field/field";
 
 const DiretoriaAdmin = () => {
@@ -39,7 +38,7 @@ const DiretoriaAdmin = () => {
     }
 
     const refreshTable = () => {
-        getFullDiretoria()
+        getDiretoria()
         .then((response) => {
             let data = response.data;
             console.log(data);

@@ -14,7 +14,7 @@ const QuemSomos = () => {
         .then((response) => {
             
             let data = response.data;
-            console.log(data);
+            console.log("Diretoria: ", data);
             if(data.success){   
                 setList(data.data);
             }

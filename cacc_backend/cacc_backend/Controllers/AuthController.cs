@@ -31,5 +31,25 @@ namespace cacc_backend.Controllers
                 return new JsonResult(retorno);
             }
         }
+
+        [HttpGet("[Action]")]
+        [Authorize]
+        public JsonResult validateToken()
+        {
+            Retorno retorno = new Retorno();
+            try
+            {
+                retorno.success = true;
+
+                return new JsonResult(retorno);
+            }
+            catch (Exception ex)
+            {
+                retorno.addItem(ex.Message);
+                retorno.success = false;
+
+                return new JsonResult(retorno);
+            }
+        }
     }
 }

@@ -38,7 +38,7 @@ const ParticlesComp = () => {
                         quantity: 2,
                     },
                     repulse: {
-                        distance: 200,
+                        distance: 100,
                         duration: 0.5,
                     },
                 },
@@ -64,8 +64,8 @@ const ParticlesComp = () => {
                         default: "bounce",
                     },
                     random: true,
-                    speed: 10,
-                    straight: false,
+                    speed: 1,
+                    straight: true,
                 },
                 number: {
                     density: {

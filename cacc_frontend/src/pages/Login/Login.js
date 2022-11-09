@@ -1,8 +1,9 @@
 import "./Login.css";
 import { FaArrowLeft } from "react-icons/fa"
-import { useHistory, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useState } from "react";
 import Field from "../../components/Field/field";
+import { signin, signout } from "./../../hooks/authApi.js";
 
 const Login = () => {
 
@@ -15,9 +16,66 @@ const Login = () => {
     const [password, setPassword] = useState("");
 
     const handleOnLogin = () => {
-        if(true){
-            navigate("/admin/publicacoes");
+        const user = {
+            "email": email,
+            "password": password
+        };
+        
+        if(!validFields())
+            return;
+
+        signin(user)
+        .then(response => {
+            let data = response.data;
+            if(data.success){
+                let token = data.data.token;
+                let user = data.data.user;
+
+                localStorage.setItem("validToken", token);
+                localStorage.setItem("userLogged", JSON.stringify(user));
+                navigate("/admin/eventos");
+            }
+            else{
+                mostra_erros(data.itens)
+                signout();
+            }
+        });
+        
+
+        // if(true){
+        //     navigate("/admin/publicacoes");
+        // }
+    }
+
+    const mostra_erros = (itens) => {
+        if(itens) {
+            let msgAlert = "";
+            for(const item of itens){
+                msgAlert += item.message += "\n";
+            }
+
+            alert(msgAlert);
         }
+    }
+
+    const validFields = () => {
+        let msgValidation = "";
+        if(isNull(email))
+            msgValidation += "Você precisa preencher o campo 'Email'\n";
+        
+        if(isNull(password))
+            msgValidation += "Você precisa preencher o campo 'Senha'\n";
+
+        if(!isNull(msgValidation)){
+            alert(msgValidation);
+            return false;
+        }
+
+        return true;
+    }
+
+    const isNull = (item) => {
+        return item == "" || item == undefined || item == null;
     }
 
     return (
@@ -26,7 +84,7 @@ const Login = () => {
                 <div className="ModalHeader">
                     <FaArrowLeft className="LeftArrow" onClick={backHistory}/>
                     <div className="ModalHeaderTitle">
-                        <img/>
+                        <h3>Login</h3>
                     </div>
                     <div className="BlankSpace">
 

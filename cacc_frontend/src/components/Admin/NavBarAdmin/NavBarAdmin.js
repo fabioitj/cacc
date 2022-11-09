@@ -2,12 +2,17 @@ import { useState } from "react";
 import { FaCogs, FaSignOutAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./NavBarAdmin.css";
+import { signout } from "./../../../hooks/authApi"
 
 const NavBarAdmin = () => {
     const [settingsClicked, setSettingsClicked] = useState(false);
 
     const handleSettingsClicked = () => {
         setSettingsClicked(!settingsClicked);
+    }
+
+    const handleSignout = () => {
+        signout();
     }
 
     window.onclick = (e) => {
@@ -27,7 +32,7 @@ const NavBarAdmin = () => {
                 <div className={settingsClicked ? "SettingsPopUp" : "SettingsPopUp SettingsPopUpShowed"}>
                     <div className="SettingsPopUpItem">
                         <div className="SettingsPopUpImage">
-                            <Link to="/eventos"><FaSignOutAlt/></Link>
+                            <Link onClick={handleSignout} to="/eventos"><FaSignOutAlt/></Link>
                         </div>
                     </div>
                 </div>
