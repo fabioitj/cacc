@@ -88,9 +88,9 @@ const Contato = () => {
                                     <h1>Vamos conversar!</h1>
                                     <p>Juntos criaremos algo incrível.</p>
                                     <div className="RedesIcons">
-                                        <FaInstagram onClick={() => { handleClickRedeSocial("I") }}/>
-                                        <FaWhatsapp onClick={() => { handleClickRedeSocial("W") }}/>
-                                        <FaDiscord onClick={() => { handleClickRedeSocial("D") }}/>
+                                        <FaInstagram className="InstagramIcon" onClick={() => { handleClickRedeSocial("I") }}/>
+                                        <FaWhatsapp className="WhatsAppIcon" onClick={() => { handleClickRedeSocial("W") }}/>
+                                        <FaDiscord className="DiscordIcon" onClick={() => { handleClickRedeSocial("D") }}/>
                                     </div>
                                 </div>
                             </div>

@@ -46,3 +46,13 @@
 .Field input::placeholder, .Field textarea::placeholder, .Field select::placeholder{
     color: #C2C2C2;
 }
+
+.Field .LighterThemeInput{
+    background-color: #FBFBFB;
+    color: black;
+    caret-color: black;
+}
+
+.Field .LighterThemeInput::placeholder{
+    color: black;
+}

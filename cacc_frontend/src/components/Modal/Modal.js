@@ -15,7 +15,7 @@ const Modal = ({children, title, btnText, setOpenModal, callback}) => {
     }
 
     const handleCallback = () => {
-        console.log("to aqui teste 1");
+        // console.log("to aqui teste 1");
         callback();
         setOpenModal(false);
     }

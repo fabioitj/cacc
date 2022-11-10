@@ -4,7 +4,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Geral from "./components/Geral/Geral";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Eventos from "./pages/Eventos/Eventos";
 import Contato from "./pages/Contato/contato";
@@ -28,9 +28,13 @@ root.render(
     <BrowserRouter>
       {/* <RedirectTo> */}
         <Routes>
+          <Route path="/" element={<Navigate to="/eventos"/>}>
+
+          </Route>
+
           <Route path="/" element={<Geral />}>
             {/* <Route path="/inicio" element={<Publicacoes/>}/> */}
-            <Route path="/eventos" element={<Eventos />} />
+            <Route exact path="/eventos" element={<Eventos />} />
             <Route path="/contato" element={<Contato />} />
             <Route path="/quem_somos" element={<QuemSomos />} />
           </Route>
@@ -39,6 +43,7 @@ root.render(
 
           <Route path="/" element={<ProtectedRoute><Admin /></ProtectedRoute>}>
             <Route path="/admin/eventos" element={<EventosAdmin />} />
+            <Route path="/admin/contas" element={<ContasAdmin />} />
             <Route path="/admin/mensagens" element={<MensagensAdmin />} />
             <Route path="/admin/diretoria" element={<DiretoriaAdmin />} />
             <Route path="/admin/cargos" element={<CargosAdmin />} />

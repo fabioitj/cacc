@@ -5,8 +5,12 @@ function getFullContas(){
     return axios.get(url + "Contas/getFullContas", config);
 }
 
+function getContaById(id) {
+    return axios.get(url + "Contas/getContaById/"+id, config);
+}
+
 function deleteRegistro(id){
-    return axios.delete(url + "Contas/deleteRegistro?id=" + id, config)
+    return axios.delete(url + "Contas/deleteRegistro/" + id, config)
 }
 
 function saveRegistro(obj){
@@ -17,4 +21,4 @@ function saveRegistro(obj){
 }
 
 
-export {getFullContas, deleteRegistro, saveRegistro};
+export {getFullContas, getContaById, deleteRegistro, saveRegistro};

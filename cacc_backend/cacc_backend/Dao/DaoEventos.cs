@@ -33,10 +33,10 @@ namespace cacc_backend.Dao
                     m.idevento = table["IDEVENTO"].ToString();
                     m.titulo = table["TITULO"].ToString();
                     m.subtitulo = table["SUBTITULO"].ToString();
-                    //byte[] byteImage = (byte[])table["IMAGEM"];
-                    //if (byteImage.Length > 0)
-                    //    m.imagem = "data:image/png;base64," + BinaryToText(byteImage);
-                    
+                    byte[] byteImage = (byte[])table["IMAGEM"];
+                    if (byteImage.Length > 0)
+                        m.imagem = "data:image/png;base64," + BinaryToText(byteImage);
+
                 }
                 table.Close();
 
@@ -69,9 +69,9 @@ namespace cacc_backend.Dao
                     m.idevento = table["IDEVENTO"].ToString();
                     m.titulo = table["TITULO"].ToString();
                     m.subtitulo = table["SUBTITULO"].ToString();
-                    //byte[] byteImage = (byte[])table["IMAGEM"];
-                    //if (byteImage.Length > 0)
-                    //    m.imagem = "data:image/png;base64," + BinaryToText(byteImage);
+                    byte[] byteImage = (byte[])table["IMAGEM"];
+                    if (byteImage.Length > 0)
+                        m.imagem = "data:image/png;base64," + BinaryToText(byteImage);
 
                     cargos.Add(m);
                 }

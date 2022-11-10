@@ -7,6 +7,7 @@
     cursor: pointer;
     margin: 0 20px 45px 20px !important;
     overflow: hidden;
+    border-radius: 16px;
 }
 
 .EventoCard:hover{
@@ -53,10 +54,17 @@
 }
 
 
+@media (max-width: 1400px){
+    .EventoCard {
+        min-width: calc(50% - 10px);
+        width: calc(50% - 10px);
+    }
+}
 
-@media (max-width: 700px){
+@media (max-width: 1000px){
     .EventoCard{
         width: calc(100%);
         margin: 20px auto !important;
     }
 }
+

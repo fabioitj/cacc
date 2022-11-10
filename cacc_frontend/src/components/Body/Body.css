@@ -20,13 +20,13 @@
 }
 
 
-@media  (max-width: 1200px){
+@media  (max-width: 1400px){
     .Body .ContentBox .Page{
         width: 90%;
     }   
 }
 
-@media  (max-width: 700px){
+@media  (max-width: 1400px){
     .Body .ContentBox .Page{
         width: 100%;
     }

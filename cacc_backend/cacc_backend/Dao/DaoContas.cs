@@ -10,29 +10,29 @@ namespace cacc_backend.Dao
 {
     public class DaoContas
     {
-        public CargoModel getContasById(string id)
+        public ContaModel getContasById(string id)
         {
             ConnectionMySql conexao = new ConnectionMySql();
             try
             {
                 string sql = $@"SELECT
-                                    IDCARGO,
-                                    DESCRICAO,
-                                    ORDEM
+                                    IDCONTA,
+                                    EMAIL,
+                                    NOME,
+                                    SENHA
                                 FROM
-                                    cacc.cargos
+                                    cacc.contas
                                 WHERE
-                                    IDCARGO = '{id}'
-                                ORDER BY
-                                    ORDEM";
+                                    IDCONTA = '{id}'";
 
                 MySqlDataReader table = conexao.ExecuteQuery(sql);
-                CargoModel m = new CargoModel();
+                ContaModel m = new ContaModel();
                 while (table.Read())
                 {
-                    m.idcargo = table["IDCARGO"].ToString();
-                    m.descricao = table["DESCRICAO"].ToString();
-                    m.ordem = table["ORDEM"].ToString();
+                    m.idconta = table["IDCONTA"].ToString();
+                    m.email = table["EMAIL"].ToString();
+                    m.nome = table["NOME"].ToString();
+                    m.senha = table["SENHA"].ToString();
                 }
 
                 return m;
@@ -43,34 +43,34 @@ namespace cacc_backend.Dao
             }
         }
 
-        public List<CargoModel> getFullContas()
+        public List<ContaModel> getFullContas()
         {
             ConnectionMySql conexao = new ConnectionMySql();
             try
             {
                 string sql = $@"SELECT
-                                    IDCARGO,
-                                    DESCRICAO,
-                                    ORDEM
+                                    IDCONTA,
+                                    EMAIL,
+                                    NOME,
+                                    SENHA
                                 FROM
-                                    cacc.cargos
-                                ORDER BY
-                                    ORDEM";
+                                    cacc.contas";
 
                 MySqlDataReader table = conexao.ExecuteQuery(sql);
-                List<CargoModel> cargos = new List<CargoModel>();
+                List<ContaModel> contas = new List<ContaModel>();
                 while (table.Read())
                 {
-                    CargoModel m = new CargoModel();
-                    m.idcargo = table["IDCARGO"].ToString();
-                    m.descricao = table["DESCRICAO"].ToString();
-                    m.ordem = table["ORDEM"].ToString();
+                    ContaModel m = new ContaModel();
+                    m.idconta = table["IDCONTA"].ToString();
+                    m.nome = table["NOME"].ToString();
+                    m.email = table["EMAIL"].ToString();
+                    m.senha = table["SENHA"].ToString();
 
-                    cargos.Add(m);
+                    contas.Add(m);
                 }
                 table.Close();
 
-                return cargos;
+                return contas;
             }
             catch(Exception ex)
             {
@@ -78,18 +78,17 @@ namespace cacc_backend.Dao
             }
         }
 
-        public bool updateRegistro(CargoUpdateModel model)
+        public bool updateRegistro(ContaUpdateModel model)
         {
             ConnectionMySql conexao = new ConnectionMySql();
             try
             {
                 string sql = $@"UPDATE
-                                    cacc.cargos
+                                    cacc.contas
                                 SET
-                                    DESCRICAO = '{model.descricao}',
-                                    ORDEM = '{model.ordem}'
+                                    NOME = '{model.nome}'
                                 WHERE
-                                    IDCARGO = '{model.idcargo}'";
+                                    IDCONTA = '{model.idconta}'";
 
                 conexao.StartTransaction();
                 conexao.ExecuteNonQuery(sql);
@@ -104,21 +103,23 @@ namespace cacc_backend.Dao
             }
         }
 
-        public bool createRegistro(CargoCreateModel model)
+        public bool createRegistro(ContaCreateModel model)
         {
             ConnectionMySql conexao = new ConnectionMySql();
             try
             {
                 string sql = $@"    INSERT INTO 
-                                        cacc.cargos
+                                        cacc.contas
                                         (
-                                            DESCRICAO,
-                                            ORDEM
+                                            EMAIL,
+                                            NOME,
+                                            SENHA
                                         )
                                         VALUES
                                         (
-                                            '{model.descricao}',
-                                            '{model.ordem}'
+                                            '{model.email}',
+                                            '{model.nome}',
+                                            '{model.senha}'
                                         )";
 
                 conexao.StartTransaction();
@@ -140,7 +141,7 @@ namespace cacc_backend.Dao
             {
                 conexao.StartTransaction();
 
-                string sqlDelete = $@"DELETE FROM cacc.cargos WHERE IDCARGO = '{id}'";
+                string sqlDelete = $@"DELETE FROM cacc.contas WHERE IDCONTA = '{id}'";
                 conexao.ExecuteNonQuery(sqlDelete);
                 conexao.CommitTransaction();
 

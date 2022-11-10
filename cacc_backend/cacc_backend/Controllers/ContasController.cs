@@ -17,8 +17,8 @@ namespace cacc_backend.Controllers
             Retorno retorno = new Retorno();
             try
             {
-                DaoCargos daoCargos = new DaoCargos();
-                object data = daoCargos.getFullCargos();
+                DaoContas daoCargos = new DaoContas();
+                object data = daoCargos.getFullContas();
 
                 retorno.data = data;
                 retorno.success = true;
@@ -41,8 +41,8 @@ namespace cacc_backend.Controllers
             Retorno retorno = new Retorno();
             try
             {
-                DaoCargos daoCargos = new DaoCargos();
-                object data = daoCargos.getCargosById(id);
+                DaoContas daoCargos = new DaoContas();
+                object data = daoCargos.getContasById(id);
 
                 retorno.data = data;
                 retorno.success = true;
@@ -60,12 +60,12 @@ namespace cacc_backend.Controllers
 
         [HttpPost("[Action]")]
         [Authorize]
-        public JsonResult createRegistro([FromBody] CargoCreateModel model)
+        public JsonResult createRegistro([FromBody] ContaCreateModel model)
         {
             Retorno retorno = new Retorno();
             try
             {
-                DaoCargos daoCargos = new DaoCargos();
+                DaoContas daoCargos = new DaoContas();
                 bool deu_certo = daoCargos.createRegistro(model);
 
                 if (deu_certo)
@@ -87,12 +87,12 @@ namespace cacc_backend.Controllers
 
         [HttpPut("[Action]")]
         [Authorize]
-        public JsonResult updateRegistro([FromBody] CargoUpdateModel model)
+        public JsonResult updateRegistro([FromBody] ContaUpdateModel model)
         {
             Retorno retorno = new Retorno();
             try
             {
-                DaoCargos daoCargos = new DaoCargos();
+                DaoContas daoCargos = new DaoContas();
                 bool deu_certo = daoCargos.updateRegistro(model);
 
                 if (deu_certo)
@@ -112,14 +112,14 @@ namespace cacc_backend.Controllers
             }
         }
 
-        [HttpDelete("[Action]")]
+        [HttpDelete("[Action]/{id}")]
         [Authorize]
         public JsonResult deleteRegistro(string id)
         {
             Retorno retorno = new Retorno();
             try
             {
-                DaoCargos daoCargos = new DaoCargos();
+                DaoContas daoCargos = new DaoContas();
                 bool deu_certo = daoCargos.deleteRegistro(id);
 
                 if (deu_certo)

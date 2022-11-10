@@ -125,8 +125,35 @@
     align-items: center;
     font-size: 32px;
     cursor: pointer;
-   
 }
+
+.WhatsAppIcon {
+    transition: 0.2s all;
+}
+
+.WhatsAppIcon:hover {
+    color: #4AAE20;
+    transform: scale(1.1);
+}
+
+.DiscordIcon {
+    transition: 0.2s all;
+}
+
+.DiscordIcon:hover {
+    color: #5360E5;
+    transform: scale(1.1);
+}
+
+.InstagramIcon {
+    transition: 0.2s all;
+}
+
+.InstagramIcon:hover {
+    /* font-size: 40px; */
+    color: #e72c83;
+    transform: scale(1.1);
+  }
 
 .BtnEnviarComentario button {
     padding: 5px;

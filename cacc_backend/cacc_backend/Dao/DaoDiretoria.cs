@@ -107,9 +107,9 @@ namespace cacc_backend.Dao
                     item.dscargo = table["DESCRICAO"].ToString();
                     item.apresentacao = table["APRESENTACAO"].ToString();
 
-                    //byte[] byteImage = (byte[])table["IMAGEM"];
-                    //if (byteImage.Length > 0)
-                    //    item.imagem = "data:image/png;base64," + BinaryToText(byteImage);
+                    byte[] byteImage = (byte[])table["IMAGEM"];
+                    if (byteImage.Length > 0)
+                        item.imagem = "data:image/png;base64," + BinaryToText(byteImage);
 
                     item.ativo = table["ATIVO"].ToString();
 
@@ -167,9 +167,9 @@ namespace cacc_backend.Dao
                     item.dscargo = table["DESCRICAO"].ToString();
                     item.apresentacao = table["APRESENTACAO"].ToString();
 
-                    //byte[] byteImage = (byte[])table["IMAGEM"];
-                    //if(byteImage.Length > 0)
-                    //    item.imagem = "data:image/png;base64," + BinaryToText(byteImage);
+                    byte[] byteImage = (byte[])table["IMAGEM"];
+                    if (byteImage.Length > 0)
+                        item.imagem = "data:image/png;base64," + BinaryToText(byteImage);
 
                     //item.imagem = table["IMAGEM"].ToString();
                     item.ativo = table["ATIVO"].ToString();

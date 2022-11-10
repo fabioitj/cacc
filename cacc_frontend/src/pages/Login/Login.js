@@ -78,11 +78,6 @@ const Login = () => {
         return item == "" || item == undefined || item == null;
     }
 
-    const [isRegister, setIsRegister] = useState(false);
-    const handleOnRegister = () => {
-
-    }
-
     return (
         <div className="Login">
             <div className="ModalLogin">
@@ -99,17 +94,11 @@ const Login = () => {
                     <div className="Field">
                         <Field label={"Email"} typeInput={"email"} typeOfField={"input"} classe={"InputField"} get={email} set={setEmail}/>
                     </div>
-                    {
-                        
-                    }
                     <div className="Field">
                         <Field label={"Senha"} typeInput={"password"} typeOfField={"input"} classe={"InputField"} get={password} set={setPassword}/>
                     </div>
                 </div>
                 <div className="ModalFooter">
-                <div className="ButtonBoxLeft">
-                        <button onClick={handleOnRegister} className="btn btn-primary">Registrar</button>
-                    </div>
                     <div className="ButtonBox">
                         <button onClick={handleOnLogin} className="btn btn-primary">Entrar</button>
                     </div>

@@ -89,3 +89,4 @@ C:\website\cacc\cacc_backend\cacc_backend\obj\Debug\net5.0\cacc_backend.dll
 C:\website\cacc\cacc_backend\cacc_backend\obj\Debug\net5.0\ref\cacc_backend.dll
 C:\website\cacc\cacc_backend\cacc_backend\obj\Debug\net5.0\cacc_backend.pdb
 C:\website\cacc\cacc_backend\cacc_backend\obj\Debug\net5.0\cacc_backend.genruntimeconfig.cache
+C:\Users\fabio\Documents\cacc\cacc_backend\cacc_backend\bin\Debug\net5.0\cacc_backend.StaticWebAssets.xml

@@ -139,7 +139,7 @@
     transform: scale(1.1);
 }
 
-@media (max-width: 900px){
+@media (max-width: 1400px){
     .Footer{
         width: 100%;
         height: min-content;
