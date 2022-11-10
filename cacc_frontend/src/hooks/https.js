@@ -1,10 +1,11 @@
-const url = "http://localhost/cacc_backend/api/";
+const url = "http://localhost:80/cacc_backend/api/";
 var config = {
     headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+        'Content-Type': 'application/json'
+    },
+    proxy: {
+        host: 'localhost',
+        port: 3000
     }
 };
 

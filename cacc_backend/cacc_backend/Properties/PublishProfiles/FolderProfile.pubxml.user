@@ -5,6 +5,6 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\inetpub\wwwroot\cacc_backend</_PublishTargetUrl>
-    <History>True|2022-11-05T07:37:37.9948332Z;True|2022-11-05T02:42:22.8307502-03:00;False|2022-11-05T02:38:37.9813101-03:00;</History>
+    <History>True|2022-11-09T22:54:52.1713050Z;True|2022-11-09T19:52:36.7798774-03:00;True|2022-11-09T19:52:07.4112403-03:00;True|2022-11-09T19:49:33.0458564-03:00;False|2022-11-09T19:47:56.8856417-03:00;True|2022-11-05T04:37:37.9948332-03:00;True|2022-11-05T02:42:22.8307502-03:00;False|2022-11-05T02:38:37.9813101-03:00;</History>
   </PropertyGroup>
 </Project>
