@@ -28,9 +28,7 @@ root.render(
     <BrowserRouter>
       {/* <RedirectTo> */}
         <Routes>
-          <Route path="/" element={<Navigate to="/eventos"/>}>
-
-          </Route>
+          <Route path="/" element={<Navigate to="/eventos"/>}></Route>
 
           <Route path="/" element={<Geral />}>
             {/* <Route path="/inicio" element={<Publicacoes/>}/> */}
