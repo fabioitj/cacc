@@ -83,14 +83,14 @@
 .Footer .Column6 p{
     width: 80%;
     text-align: left;
-    color: #1D67CD;
+    color: white;
 }
 
 .Footer .Column4 h2{
     font-size: 20px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
-    color: #1D67CD;
+    color: white;
 }
 
 .TextBox{
@@ -103,7 +103,7 @@
 
 .TextBox .ContentBox{
     padding-right: 100px;
-    color: #1D67CD;
+    color: white;
     font-size: 18px;
 }
 

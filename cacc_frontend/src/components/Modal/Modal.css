@@ -16,7 +16,8 @@
 .ModalBackground .Modal{
     width: 30%; 
     background-color: white;
-    box-shadow: 0 0 10px 1px black;
+    box-shadow: 0 0 10px 1px #BABABA;
+    border-radius: 8px;
 }
 
 .ModalBackground .Modal .ModalBox{
