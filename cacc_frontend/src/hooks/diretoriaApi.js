@@ -1,13 +1,20 @@
 import axios from "axios";
 import {url, config} from "./https.js";
 
+function getFullDiretoria() {
+    return axios.get(url + "Diretoria/getFullDiretoria", config);
+}
+
 function getDiretoria(){
     // console.log("URL REQUEST: ", url + "Diretoria/getDiretoria")
     return axios.get(url + "Diretoria/getDiretoria");
 }
 
 function alternarAtividade(id){
-    return axios.put(url + "Diretoria/alterarStatus?id=" + id, config);
+    const obj = {
+        "iddiretoria": id
+    }
+    return axios.put(url + "Diretoria/alterarStatus", obj, config);
 }
 
 function deleteRegistro(id){
@@ -22,4 +29,4 @@ function createRegistro(obj){
 }
 
 
-export {getDiretoria, alternarAtividade, deleteRegistro, createRegistro};
+export {getDiretoria, getFullDiretoria, alternarAtividade, deleteRegistro, createRegistro};

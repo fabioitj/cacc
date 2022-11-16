@@ -84,17 +84,17 @@ namespace cacc_backend.Controllers
 
         [HttpPut("[Action]")]
         [Authorize]
-        public JsonResult alterarStatus(string id)
+        public JsonResult alterarStatus(AlterarStatusDiretoria model)
         {
             Retorno retorno = new Retorno();
             try
             {
                 DaoDiretoria daoDiretoria = new DaoDiretoria();
-                bool deu_certo = daoDiretoria.alterarStatus(id);
+                bool deu_certo = daoDiretoria.alterarStatus(model.iddiretoria);
 
                 if (deu_certo)
                 {
-                    retorno.data = id;
+                    retorno.data = model.iddiretoria;
                     retorno.success = true;
                 }
 

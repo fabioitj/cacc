@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { useState } from "react";
 import Field from "../../components/Field/field";
 import { signin, signout } from "./../../hooks/authApi.js";
+import Error from "../../components/Modal/Error/Error";
 
 const Login = () => {
 
@@ -54,10 +55,13 @@ const Login = () => {
                 msgAlert += item.message += "\n";
             }
 
-            alert(msgAlert);
+            setError(msgAlert);
+            setErrorModalOpen(true);
         }
     }
 
+    const [errorModalOpen, setErrorModalOpen] = useState(false);
+    const [error, setError] = useState("");
     const validFields = () => {
         let msgValidation = "";
         if(isNull(email))
@@ -67,7 +71,8 @@ const Login = () => {
             msgValidation += "Você precisa preencher o campo 'Senha'\n";
 
         if(!isNull(msgValidation)){
-            alert(msgValidation);
+            setError(msgValidation);
+            setErrorModalOpen(true);
             return false;
         }
 
@@ -104,7 +109,16 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            {
+                errorModalOpen &&
+                <Error title="Ocorreu um problema" setOpenModal={setErrorModalOpen}>
+                    <p>
+                        {error}
+                    </p>
+                </Error>
+            }
         </div>
+       
     )
 }
 

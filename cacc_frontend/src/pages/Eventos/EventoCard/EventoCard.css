@@ -53,16 +53,16 @@
     font-weight: bold;
 }
 
-
 @media (max-width: 1400px){
     .EventoCard {
-        min-width: calc(50% - 10px);
-        width: calc(50% - 10px);
+        min-width: calc(46% - 10px);
+        width: calc(46% - 10px);
     }
 }
 
 @media (max-width: 1000px){
     .EventoCard{
+        min-width: calc(100%);
         width: calc(100%);
         margin: 20px auto !important;
     }

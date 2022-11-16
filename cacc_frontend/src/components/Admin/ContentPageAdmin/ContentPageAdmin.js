@@ -4,14 +4,12 @@ import ContasAdmin from "../../../pages/Admin/ContasAdmin/ContasAdmin";
 import DiretoriaAdmin from "../../../pages/Admin/DiretoriaAdmin/DiretoriaAdmin";
 import EventosAdmin from "../../../pages/Admin/EventosAdmin/EventosAdmin";
 import MensagensAdmin from "../../../pages/Admin/MensagensAdmin/MensagensAdmin";
-import PublicacoesAdmin from "../../../pages/Admin/PublicacoesAdmin/PublicacoesAdmin";
 import "./ContentPageAdmin.css";
 
 const ContentPageAdmin = () => {
     return (
         <div className="ContentPageAdmin">
             <Routes>
-                {/* <Route path="/admin/publicacoes" element={<PublicacoesAdmin/>}/> */}
                 <Route path="/admin/eventos" element={<EventosAdmin/>}/>
                 <Route path="/admin/contas" element={<ContasAdmin/>}/>
                 <Route path="/admin/mensagens" element={<MensagensAdmin/>}/>

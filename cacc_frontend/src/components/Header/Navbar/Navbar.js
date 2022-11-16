@@ -9,23 +9,23 @@ const Navbar = ({ scrollPage }) => {
     useEffect(() => {
         let width = window.screen.width;
         console.log("width: ", width);
-        if (width <= 700)
+        if (width <= 700){
             setAndroidPage(true);
-        else
-            setAndroidPage(false);
-
-        const links = document.getElementsByClassName("nav-item");
-        for (const link of links) {
-            link.onclick = () => {
-                document.getElementById("btnToggler").click();
+            const links = document.getElementsByClassName("nav-item");
+            for (const link of links) {
+                link.onclick = () => {
+                    document.getElementById("btnToggler").click();
+                }
             }
         }
+        else
+            setAndroidPage(false);
     });
 
     return (
         <nav className={!scrollPage ? "navbar navbar-expand-lg navbar-light bg-light" : "navbar navbar-expand-lg navbar-light bg-light NavbarScrolled"} >
             <div className="container-fluid">
-                <a className="navbar-brand"><Link to="/inicio"><img className={!scrollPage ? "LogoImage" : "LogoImage LogoImageScrolled"} /></Link></a>
+                <a className="navbar-brand"><Link to="/"><img className={!scrollPage ? "LogoImage" : "LogoImage LogoImageScrolled"} /></Link></a>
                 <button id="btnToggler" className="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon bg-white"></span>
                 </button>

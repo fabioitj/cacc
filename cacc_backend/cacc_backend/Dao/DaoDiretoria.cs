@@ -151,8 +151,6 @@ namespace cacc_backend.Dao
 	                                cacc.diretoria di
                                     LEFT JOIN cacc.cargos carg 
                                     ON di.idcargo = carg.idcargo
-                                where
-	                                di.ativo = 'S'
                                 order by
 	                                carg.ordem";
 

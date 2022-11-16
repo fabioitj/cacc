@@ -1,6 +1,6 @@
 import "./DiretoriaAdmin.css";
 import { useEffect, useState } from "react";
-import { getDiretoria, alternarAtividade, deleteRegistro, createRegistro } from "../../../hooks/diretoriaApi";
+import { getFullDiretoria, alternarAtividade, deleteRegistro, createRegistro } from "../../../hooks/diretoriaApi";
 import { getFullCargos } from "../../../hooks/cargosApi";
 import { FaRegEdit, FaHandPointUp, FaHandPointDown, FaTrash, FaPlus } from "react-icons/fa";
 import { Button } from "reactstrap";
@@ -38,7 +38,7 @@ const DiretoriaAdmin = () => {
     }
 
     const refreshTable = () => {
-        getDiretoria()
+        getFullDiretoria()
         .then((response) => {
             let data = response.data;
             console.log(data);

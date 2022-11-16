@@ -159,25 +159,25 @@ const EventosAdmin = () => {
             </div>
             {modalCreateIsOpen && 
                 <Modal title="Cadastro de Evento" btnText="Salvar" setOpenModal={setModalCreateIsOpen} callback={createCallback}>
-                <form role="form" className="FormCreateRegister">
-                    <div className="FormBox">
-                        <div className="BoxField">
-                            <Field label="Título" classe="LighterThemeInput" typeInput="text" typeOfField="input" get={titulo} set={setTitulo} />
-                        </div>
-                        <div className="BoxField">
-                            <Field label="Subtítulo" classe="LighterThemeInput" typeInput="text" typeOfField="input" get={subtitulo} set={setSubtitulo} />
-                        </div>
-                        <div className="BoxField">
-                            <div className="dragNDrop">
-                                <p>Escolha a sua <strong>IMAGEM</strong> aqui!</p>
-                                <input type="file" accept="image/png" onChange={(e) => { handleChangeEvent(e)}} placeholder="Escolha a imagem"/>
-                                <img src={imagem}/>
+                    <form role="form" className="FormCreateRegister">
+                        <div className="FormBox">
+                            <div className="BoxField">
+                                <Field label="Título" classe="LighterThemeInput" typeInput="text" typeOfField="input" get={titulo} set={setTitulo} />
                             </div>
-                        </div>
+                            <div className="BoxField">
+                                <Field label="Subtítulo" classe="LighterThemeInput" typeInput="text" typeOfField="input" get={subtitulo} set={setSubtitulo} />
+                            </div>
+                            <div className="BoxField">
+                                <div className="dragNDrop">
+                                    <p>Escolha a sua <strong>IMAGEM</strong> aqui!</p>
+                                    <input type="file" accept="image/png" onChange={(e) => { handleChangeEvent(e)}} placeholder="Escolha a imagem"/>
+                                    <img src={imagem}/>
+                                </div>
+                            </div>
 
-                    </div>
-                </form>
-            </Modal>
+                        </div>
+                    </form>
+                </Modal>
             }
         </>
 

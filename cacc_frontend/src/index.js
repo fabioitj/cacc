@@ -9,16 +9,13 @@ import Login from "./pages/Login/Login";
 import Eventos from "./pages/Eventos/Eventos";
 import Contato from "./pages/Contato/contato";
 import QuemSomos from "./pages/QuemSomos/quemSomos";
-import Publicacoes from "./pages/Publicacoes/Publicacoes";
 import Admin from "./pages/Admin/Admin";
-import PublicacoesAdmin from "./pages/Admin/PublicacoesAdmin/PublicacoesAdmin";
 import EventosAdmin from "./pages/Admin/EventosAdmin/EventosAdmin";
 import ContasAdmin from "./pages/Admin/ContasAdmin/ContasAdmin";
 import MensagensAdmin from "./pages/Admin/MensagensAdmin/MensagensAdmin";
 import DiretoriaAdmin from "./pages/Admin/DiretoriaAdmin/DiretoriaAdmin";
 import CargosAdmin from "./pages/Admin/CargosAdmin/CargosAdmin";
 import ParticlesComp from "./components/Particles/Particles";
-import RedirectTo from "./components/ProtectedRouter";
 import ProtectedRoute from "./components/ProtectedRouter";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

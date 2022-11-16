@@ -4,6 +4,9 @@ import "./contato.css"
 import { sendComentario } from "../../hooks/contatoApi.js";
 import { FaInstagram, FaWhatsapp, FaDiscord } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useSyncExternalStore } from "react";
+import Error from "../../components/Modal/Error/Error";
+import Success from "../../components/Modal/Success/Success";
 
 
 const Contato = () => {
@@ -20,7 +23,8 @@ const Contato = () => {
                 .then((response) => {
                     let data = response.data;
                     if(data.success){
-                        alert("Mensagem enviada com sucesso!");
+                        setSuccess("Mensagem enviada com sucesso!");
+                        setOpenModalSuccess(true);
                         resetFields();
                     }
                     else{
@@ -36,24 +40,30 @@ const Contato = () => {
         setObs("");
     }
 
+    const [error, setError] = useState("");
+    const [openModalError, setOpenModalError] = useState(false);
+
+    const [success, setSuccess] = useState("");
+    const [openModalSuccess, setOpenModalSuccess] = useState(false);
+
     const validaDados = () => {
-        let validation = true;
-        if(isVazio(email)){
-            alert("email");
-            validation = false;
-        }
 
-        if(isVazio(nome)){
-            alert("nome");
-            validation = false;
+        let msgValidation = "";
+        if(isVazio(email))
+            msgValidation += "Você precisa preencher o campo 'Email'\r\n";
+        
+        if(isVazio(nome))
+            msgValidation += "Você precisa preencher o campo 'Nome'\r\n";
+        
+        if(isVazio(obs))
+            msgValidation += "Você precisa preencher o campo 'Obs'\r\n";
+        
+        if(!isVazio(msgValidation)){
+            setError(msgValidation);
+            setOpenModalError(true);
+            return false;
         }
-
-        if(isVazio(obs)){
-            alert("obs");
-            validation = false;
-        }
-
-        return validation;
+        return true;
     }
 
     const isVazio = (item) => item == "" || item == null || item == undefined;
@@ -123,7 +133,22 @@ const Contato = () => {
                     </div>                    
                 </div>
             </div>
-
+            {
+                openModalError &&
+                <Error title="Ocorreu um problema" setOpenModal={setOpenModalError}>
+                    <p>
+                        {error}
+                    </p>
+                </Error>
+            }
+            {
+                openModalSuccess &&
+                <Success title="Sucesso" setOpenModal={setOpenModalSuccess}>
+                    <p>
+                        {success}
+                    </p>
+                </Success>
+            }
         </div>
     )
 }

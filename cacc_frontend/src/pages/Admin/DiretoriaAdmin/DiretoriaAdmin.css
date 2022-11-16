@@ -24,7 +24,7 @@
     border-radius: 8px;
     margin: 15px 0;
     padding: 15px;
-    box-shadow: 0 0 15px 2px black;
+    box-shadow: 0 0 15px 2px #BABABA;
 }
 
 .Diretoria .DiretoriaBox .DiretoriaBoxBody{
@@ -37,7 +37,7 @@
     align-items: flex-start;
     justify-content:center;
     padding: 15px;
-    box-shadow: 0 0 15px 2px black;
+    box-shadow: 0 0 15px 2px #BABABA;
 }
 
 .Diretoria .DiretoriaBox .DiretoriaBoxBody .RowFilters{
@@ -50,8 +50,9 @@
     height: 60%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: end;
+    overflow-x: scroll;
 }
 
 .Diretoria .DiretoriaBox .DiretoriaBoxBody .RowTable table{
@@ -143,16 +144,6 @@
 
 .dragNDrop p{
     margin: 0;
-}
-
-.Field .LighterThemeInput{
-    background-color: #FBFBFB;
-    color: black;
-    caret-color: black;
-}
-
-.Field .LighterThemeInput::placeholder{
-    color: black;
 }
 
 .BoxField .dragNDrop input{

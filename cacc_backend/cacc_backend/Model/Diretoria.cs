@@ -43,4 +43,9 @@ namespace cacc_backend.Model
             return this.iddiretoria;
         }
     }
+
+    public class AlterarStatusDiretoria
+    {
+        public string iddiretoria { get; set; }
+    }
 }
