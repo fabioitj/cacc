@@ -76,7 +76,7 @@
     padding-top: 15px;
     width: 80%;
     text-align: left;
-    color: #1D67CD;
+    color: white;
 }
 
 
@@ -85,6 +85,8 @@
     text-align: left;
     color: white;
 }
+
+
 
 .Footer .Column4 h2{
     font-size: 20px;
@@ -120,11 +122,13 @@
     font-size: 30px;
 }
 
-.TextBox .ContentBox .Email{
-    padding-top: 20px;
+.TextBox .ContentBox .Email a{
+    text-decoration: none;
+    color: white;
+    transition: 0.2s all;
 }
 
-.TextBox .ContentBox .Email a{
+.TextBox .ContentBox .Email a:hover{
     text-decoration: underline;
 }
 
