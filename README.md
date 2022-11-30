@@ -16,7 +16,7 @@ Port: 3306 ||
 Username: admin ||
 Password: 12345678
 
-FORMULAÇÃO DO PROBLEMA
+### FORMULAÇÃO DO PROBLEMA
 
 Foi notda, principalmente após o retorno das aulas presenciais por conjta da pandemia do COVID-19, a baixa socialização entre os discentes de graduação em Ciência da Computação dentro da Universidade do Vale do Itajaí (UNIVALI), no campus de Itajaí.
 Acerca dessa problemática, tem-se, ainda, a comunicação limitada entre as partes e a ausência de representatividade dos interesses da comunidade de Ciência da Computação ante a Universidade.
